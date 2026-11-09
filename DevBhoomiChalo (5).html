@@ -1,0 +1,1965 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>DevBhoomiChalo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Mukta:wght@300;400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #E8521A;
+  --deep-green: #1B4332;
+  --sky: #2E86AB;
+  --gold: #F4A012;
+  --snow: #F9F5EE;
+  --bark: #3D2B1F;
+  --mist: #D4E5D0;
+  --rust: #C0392B;
+  --ivory: #FDF8F0;
+  --shadow: rgba(0,0,0,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Mukta', sans-serif;
+  background: var(--ivory);
+  color: var(--bark);
+  overflow-x: hidden;
+}
+
+/* ─── HEADER ─── */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: linear-gradient(135deg, var(--deep-green) 0%, #0d2e1e 100%);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 64px;
+}
+
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.logo-icon { font-size: 1.8rem; }
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.logo-sub { color: var(--mist); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; }
+
+nav { display: flex; align-items: center; gap: 0.3rem; }
+nav button {
+  background: none; border: none; color: #cde8cd;
+  font-family: 'Mukta', sans-serif; font-size: 0.85rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 20px; cursor: pointer;
+  transition: all .2s;
+}
+nav button:hover, nav button.active {
+  background: rgba(244,160,18,0.2); color: var(--gold);
+}
+
+.btn-login {
+  background: linear-gradient(135deg, var(--saffron), var(--gold)) !important;
+  color: white !important; border-radius: 20px !important;
+  padding: 6px 18px !important; font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(232,82,26,0.3);
+}
+.btn-login:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,82,26,0.5) !important; }
+
+/* ─── HERO ─── */
+#page-home .hero {
+  margin-top: 64px;
+  min-height: 92vh;
+  background: linear-gradient(160deg, #0d2e1e 0%, #1B4332 40%, #2a6048 100%);
+  position: relative; display: flex; align-items: center; overflow: hidden;
+}
+
+.hero-bg-pattern {
+  position: absolute; inset: 0; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.mountain-silhouette {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
+  background: linear-gradient(180deg, transparent 0%, rgba(232,82,26,0.08) 50%, rgba(244,160,18,0.12) 100%);
+}
+.mountain-silhouette svg { width: 100%; height: 100%; }
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+
+.hero-left {}
+.hero-badge {
+  display: inline-block;
+  background: rgba(244,160,18,0.15); border: 1px solid rgba(244,160,18,0.4);
+  color: var(--gold); padding: 4px 14px; border-radius: 20px;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  color: white; line-height: 1.1; margin-bottom: 1rem;
+}
+.hero-title span { color: var(--gold); }
+.hero-tagline {
+  font-family: 'Caveat', cursive; font-size: 1.4rem;
+  color: var(--mist); margin-bottom: 1.5rem;
+}
+.hero-desc { color: #a8d5a2; line-height: 1.7; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--saffron), #c0392b);
+  color: white; border: none; padding: 12px 28px; border-radius: 30px;
+  font-family: 'Mukta', sans-serif; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: all .25s;
+  box-shadow: 0 4px 20px rgba(232,82,26,0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,82,26,0.5); }
+.btn-secondary {
+  background: rgba(255,255,255,0.1); color: white; border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 11px 26px; border-radius: 30px;
+  font-family: 'Mukta', sans-serif; font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: all .25s; backdrop-filter: blur(8px);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.18); border-color: var(--gold); color: var(--gold); }
+
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 2.5rem;
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 900; }
+.stat-label { color: var(--mist); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.hero-right {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+
+.weather-card-hero {
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
+  padding: 1.4rem; color: white;
+}
+.weather-card-hero h4 { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem; }
+.weather-mini { display: flex; gap: 1rem; flex-wrap: wrap; }
+.wm-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+.wm-icon { font-size: 1.4rem; }
+
+.quick-search {
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 1.4rem;
+}
+.quick-search h4 { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem; }
+.search-row { display: flex; gap: 8px; }
+.search-row input {
+  flex: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px; padding: 10px 14px; color: white; font-family: 'Mukta', sans-serif;
+  font-size: 0.9rem;
+}
+.search-row input::placeholder { color: rgba(255,255,255,0.4); }
+.search-row button {
+  background: var(--saffron); border: none; border-radius: 12px;
+  padding: 10px 16px; color: white; cursor: pointer; font-size: 1rem;
+  transition: background .2s;
+}
+.search-row button:hover { background: #c0392b; }
+
+/* ─── PAGES ─── */
+.page { display: none; margin-top: 64px; }
+.page.active { display: block; }
+#page-home { display: block; margin-top: 0; }
+
+/* ─── SECTION HEADERS ─── */
+.section-header {
+  text-align: center; padding: 3rem 2rem 1.5rem;
+}
+.section-badge {
+  display: inline-block; background: rgba(232,82,26,0.1);
+  border: 1px solid rgba(232,82,26,0.3); color: var(--saffron);
+  padding: 3px 14px; border-radius: 20px; font-size: 0.7rem;
+  font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.7rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--deep-green); line-height: 1.2;
+}
+.section-title span { color: var(--saffron); }
+.section-desc { color: #666; max-width: 600px; margin: 0.7rem auto 0; line-height: 1.6; }
+
+/* ─── DESTINATIONS ─── */
+#page-destinations { padding-bottom: 4rem; }
+
+.filter-bar {
+  display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap;
+  padding: 0 2rem 1.5rem;
+}
+.filter-btn {
+  padding: 7px 18px; border-radius: 20px;
+  border: 1.5px solid #d4d4d4; background: white;
+  font-family: 'Mukta', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: all .2s; color: #555;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--deep-green); color: white; border-color: var(--deep-green);
+}
+
+.destinations-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+
+.dest-card {
+  background: white; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow); transition: all .3s; cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.dest-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+
+.dest-img {
+  height: 200px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; font-size: 5rem;
+}
+.dest-img-bg {
+  position: absolute; inset: 0;
+  transition: transform .4s;
+}
+.dest-card:hover .dest-img-bg { transform: scale(1.06); }
+.dest-emoji { position: relative; z-index: 2; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+
+.dest-badges {
+  position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 2;
+}
+.badge-tag {
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  color: white; padding: 3px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600;
+}
+.badge-tag.offbeat { background: rgba(232,82,26,0.85); }
+.badge-tag.popular { background: rgba(27,67,50,0.85); }
+.badge-tag.religious { background: rgba(244,160,18,0.85); color: #333; }
+.badge-tag.trek { background: rgba(46,134,171,0.85); }
+
+.dest-crowd {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  background: rgba(255,255,255,0.9); border-radius: 10px;
+  padding: 4px 10px; font-size: 0.75rem; font-weight: 700;
+}
+
+.dest-body { padding: 1.2rem; }
+.dest-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--bark); }
+.dest-region { color: #888; font-size: 0.8rem; margin-bottom: 0.5rem; }
+.dest-desc { color: #555; font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.8rem; }
+
+.dest-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.meta-item { display: flex; align-items: center; gap: 4px; font-size: 0.8rem; color: #555; }
+
+.dest-budget {
+  display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.budget-tier {
+  padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 600;
+}
+.tier-budget { background: #e8f5e9; color: #2e7d32; }
+.tier-mid { background: #fff3e0; color: #e65100; }
+.tier-luxury { background: #fce4ec; color: #c62828; }
+
+.dest-actions { display: flex; gap: 0.6rem; }
+.btn-explore {
+  flex: 1; padding: 9px; background: var(--deep-green); color: white;
+  border: none; border-radius: 12px; font-family: 'Mukta', sans-serif;
+  font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.btn-explore:hover { background: #0d2e1e; }
+.btn-weather-check {
+  padding: 9px 14px; background: var(--sky); color: white;
+  border: none; border-radius: 12px; font-size: 0.85rem; cursor: pointer;
+  transition: background .2s;
+}
+.btn-weather-check:hover { background: #1a6d8f; }
+
+/* ─── WEATHER PAGE ─── */
+#page-weather { padding-bottom: 4rem; }
+.weather-container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+.weather-selector {
+  display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 2rem;
+}
+.weather-loc-btn {
+  padding: 8px 16px; border-radius: 20px;
+  border: 1.5px solid #ccc; background: white;
+  font-family: 'Mukta', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+}
+.weather-loc-btn:hover, .weather-loc-btn.active {
+  background: var(--sky); color: white; border-color: var(--sky);
+}
+
+.weather-main-card {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2E86AB 100%);
+  border-radius: 24px; padding: 2rem; color: white; margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(46,134,171,0.3);
+}
+.weather-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.weather-loc-name { font-family: 'Playfair Display', serif; font-size: 2rem; }
+.weather-loc-state { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+.weather-icon { font-size: 4rem; }
+.weather-temp { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; margin: 0.5rem 0; }
+.weather-desc { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 1.5rem; }
+
+.weather-details-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem;
+}
+.w-detail {
+  background: rgba(255,255,255,0.1); border-radius: 14px; padding: 1rem; text-align: center;
+}
+.w-detail-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.w-detail-val { font-size: 1.1rem; font-weight: 700; }
+.w-detail-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; }
+
+.road-alert {
+  border-radius: 16px; padding: 1rem 1.4rem; margin-bottom: 1rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.road-alert.safe { background: #e8f5e9; border-left: 4px solid #4caf50; }
+.road-alert.caution { background: #fff3e0; border-left: 4px solid #ff9800; }
+.road-alert.danger { background: #ffebee; border-left: 4px solid #f44336; }
+.road-alert-icon { font-size: 1.5rem; }
+.road-alert-title { font-weight: 700; margin-bottom: 0.2rem; }
+.road-alert-desc { font-size: 0.85rem; color: #555; line-height: 1.5; }
+
+.season-card {
+  background: white; border-radius: 20px; padding: 1.5rem;
+  box-shadow: 0 4px 16px var(--shadow); margin-bottom: 1.5rem;
+}
+.season-card h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1rem; font-size: 1.2rem; }
+.season-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+.season-item {
+  border-radius: 14px; padding: 1rem; text-align: center; border: 1.5px solid #eee;
+  transition: all .2s; cursor: default;
+}
+.season-item.best { border-color: var(--deep-green); background: #f0f9f0; }
+.season-item.shoulder { border-color: var(--gold); background: #fffbf0; }
+.season-item.avoid { border-color: #f44336; background: #fff5f5; opacity: 0.7; }
+.season-month { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
+.season-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; }
+.season-discount { font-size: 0.75rem; color: var(--saffron); font-weight: 700; margin-top: 0.2rem; }
+
+/* ─── BUDGET PAGE ─── */
+#page-budget { padding-bottom: 4rem; }
+.budget-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.budget-setup { 
+  background: white; border-radius: 24px; padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow); margin-bottom: 1.5rem;
+}
+.budget-setup h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1.5rem; font-size: 1.3rem; }
+
+.form-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.82rem; font-weight: 700; color: #444; text-transform: uppercase; letter-spacing: 0.5px; }
+.form-group input, .form-group select {
+  padding: 10px 14px; border-radius: 12px; border: 1.5px solid #e0e0e0;
+  font-family: 'Mukta', sans-serif; font-size: 0.95rem; color: var(--bark);
+  transition: border-color .2s;
+}
+.form-group input:focus, .form-group select:focus {
+  outline: none; border-color: var(--deep-green);
+}
+
+.tier-selector { display: flex; gap: 0.8rem; }
+.tier-opt {
+  flex: 1; padding: 10px; border-radius: 12px; border: 1.5px solid #e0e0e0;
+  text-align: center; cursor: pointer; transition: all .2s; font-size: 0.85rem; font-weight: 600;
+}
+.tier-opt.selected { border-color: var(--deep-green); background: #f0f9f0; }
+.tier-opt:hover { border-color: var(--deep-green); }
+
+.btn-calc {
+  background: linear-gradient(135deg, var(--deep-green), #2a6048);
+  color: white; border: none; padding: 12px 32px; border-radius: 16px;
+  font-family: 'Mukta', sans-serif; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: all .25s; margin-top: 0.5rem;
+  box-shadow: 0 4px 16px rgba(27,67,50,0.3);
+}
+.btn-calc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,67,50,0.4); }
+
+.budget-result {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+
+.budget-breakdown {
+  background: white; border-radius: 24px; padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.budget-breakdown h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1.2rem; font-size: 1.2rem; }
+
+.expense-item {
+  display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.expense-item:last-child { border-bottom: none; }
+.expense-icon { font-size: 1.5rem; width: 36px; text-align: center; }
+.expense-details { flex: 1; }
+.expense-name { font-weight: 700; font-size: 0.9rem; }
+.expense-sub { font-size: 0.78rem; color: #888; }
+.expense-amount { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--deep-green); }
+
+.total-bar {
+  background: linear-gradient(135deg, var(--deep-green), #2a6048);
+  border-radius: 16px; padding: 1.2rem; color: white; margin-top: 1rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.total-label { font-size: 0.85rem; opacity: 0.8; }
+.total-amount { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; }
+
+.expense-tracker {
+  background: white; border-radius: 24px; padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.expense-tracker h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1rem; font-size: 1.2rem; }
+
+.add-expense-row { display: flex; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.add-expense-row input, .add-expense-row select {
+  flex: 1; min-width: 100px; padding: 9px 12px; border-radius: 10px;
+  border: 1.5px solid #e0e0e0; font-family: 'Mukta', sans-serif; font-size: 0.88rem;
+}
+.btn-add-exp {
+  background: var(--saffron); color: white; border: none;
+  padding: 9px 16px; border-radius: 10px; font-size: 1.1rem;
+  cursor: pointer; transition: background .2s;
+}
+.btn-add-exp:hover { background: #c0392b; }
+
+.expenses-list { max-height: 280px; overflow-y: auto; }
+.exp-entry {
+  display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0;
+  border-bottom: 1px solid #f5f5f5; animation: slideIn .3s ease;
+}
+@keyframes slideIn { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+.exp-cat { font-size: 1.1rem; }
+.exp-name { flex: 1; font-size: 0.88rem; }
+.exp-amount { font-weight: 700; color: var(--saffron); font-size: 0.9rem; }
+.exp-delete { background: none; border: none; color: #ccc; cursor: pointer; font-size: 0.9rem; transition: color .2s; }
+.exp-delete:hover { color: var(--rust); }
+
+.split-bill {
+  background: white; border-radius: 24px; padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow); margin-top: 1.5rem; grid-column: 1 / -1;
+}
+.split-bill h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1rem; font-size: 1.2rem; }
+.split-controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.split-result {
+  background: #f0f9f0; border-radius: 14px; padding: 1rem 1.5rem; margin-top: 1rem;
+  font-size: 0.95rem; color: var(--deep-green); font-weight: 600; display: none;
+}
+
+/* ─── TRIP PLANNER ─── */
+#page-planner { padding-bottom: 4rem; }
+.planner-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.itinerary-builder {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem;
+}
+
+.places-panel {
+  background: white; border-radius: 24px; padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow); max-height: 650px; overflow-y: auto;
+}
+.places-panel h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1rem; font-size: 1.2rem; }
+
+.place-item {
+  display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem;
+  border-radius: 12px; cursor: pointer; transition: all .2s; margin-bottom: 0.4rem;
+  border: 1.5px solid transparent;
+}
+.place-item:hover { background: #f5f5f5; }
+.place-item.added { background: #f0f9f0; border-color: var(--deep-green); }
+.place-emoji { font-size: 1.6rem; }
+.place-info { flex: 1; }
+.place-name { font-weight: 700; font-size: 0.9rem; }
+.place-type { font-size: 0.75rem; color: #888; }
+.place-dur { font-size: 0.75rem; color: var(--sky); }
+.btn-add-place {
+  background: none; border: 1.5px solid var(--deep-green); color: var(--deep-green);
+  border-radius: 8px; padding: 4px 10px; font-size: 0.75rem; cursor: pointer;
+  transition: all .2s;
+}
+.btn-add-place:hover, .place-item.added .btn-add-place {
+  background: var(--deep-green); color: white;
+}
+
+.itinerary-panel {
+  background: white; border-radius: 24px; padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.itinerary-panel h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 0.5rem; font-size: 1.2rem; }
+.itinerary-controls { display: flex; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+.itinerary-controls input { padding: 8px 14px; border-radius: 10px; border: 1.5px solid #e0e0e0; font-family: 'Mukta', sans-serif; }
+.btn-gen {
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  color: white; border: none; padding: 9px 20px; border-radius: 12px;
+  font-family: 'Mukta', sans-serif; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; transition: all .25s;
+}
+.btn-gen:hover { transform: translateY(-2px); }
+
+.day-card {
+  background: #f9f9f9; border-radius: 16px; padding: 1.2rem; margin-bottom: 1rem;
+  border-left: 4px solid var(--deep-green);
+}
+.day-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;
+}
+.day-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; color: var(--deep-green); }
+.day-meta { font-size: 0.78rem; color: #888; }
+
+.day-stops { display: flex; flex-direction: column; gap: 0.6rem; }
+.stop-item {
+  display: flex; align-items: center; gap: 0.8rem; background: white;
+  border-radius: 12px; padding: 0.7rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.stop-time { font-size: 0.75rem; color: var(--sky); font-weight: 700; min-width: 50px; }
+.stop-icon { font-size: 1.2rem; }
+.stop-name { flex: 1; font-size: 0.9rem; font-weight: 600; }
+.stop-tip { font-size: 0.75rem; color: #888; }
+.stop-remove { background: none; border: none; color: #ddd; cursor: pointer; font-size: 0.85rem; transition: color .2s; }
+.stop-remove:hover { color: var(--rust); }
+
+.empty-planner {
+  text-align: center; padding: 4rem 2rem; color: #aaa;
+}
+.empty-planner .empty-icon { font-size: 4rem; margin-bottom: 1rem; }
+.empty-planner p { font-size: 0.95rem; }
+
+/* ─── OFFERS & FOOD ─── */
+#page-offers { padding-bottom: 4rem; }
+.offers-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+.offers-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem; margin-bottom: 3rem;
+}
+.offer-card {
+  background: white; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow); transition: transform .3s;
+}
+.offer-card:hover { transform: translateY(-4px); }
+.offer-banner {
+  height: 120px; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; position: relative;
+}
+.offer-discount {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--saffron); color: white; padding: 4px 10px;
+  border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+}
+.offer-body { padding: 1.2rem; }
+.offer-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.3rem; }
+.offer-desc { font-size: 0.85rem; color: #666; margin-bottom: 0.8rem; line-height: 1.5; }
+.offer-validity { font-size: 0.75rem; color: var(--sky); font-weight: 600; }
+.btn-claim {
+  width: 100%; margin-top: 0.8rem; padding: 9px; background: var(--deep-green);
+  color: white; border: none; border-radius: 12px; font-family: 'Mukta', sans-serif;
+  font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.btn-claim:hover { background: #0d2e1e; }
+
+.food-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--deep-green); margin-bottom: 1.5rem; text-align: center; }
+.food-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem;
+}
+.food-card {
+  background: white; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 4px 16px var(--shadow); text-align: center; padding-bottom: 1rem;
+  transition: transform .2s;
+}
+.food-card:hover { transform: translateY(-3px); }
+.food-img { height: 100px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.food-name { font-weight: 700; font-size: 0.9rem; padding: 0 0.8rem; margin-bottom: 0.2rem; }
+.food-desc { font-size: 0.75rem; color: #777; padding: 0 0.8rem; line-height: 1.4; }
+.food-price { font-size: 0.8rem; color: var(--saffron); font-weight: 700; margin-top: 0.3rem; }
+
+/* ─── BUS & TRAVEL ─── */
+#page-bus { padding-bottom: 4rem; }
+.bus-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.bus-search-form {
+  background: white; border-radius: 24px; padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow); margin-bottom: 2rem;
+}
+.bus-search-form h3 { font-family: 'Playfair Display', serif; color: var(--deep-green); margin-bottom: 1.2rem; }
+
+.transport-tabs { display: flex; gap: 0.6rem; margin-bottom: 1.5rem; }
+.t-tab {
+  padding: 8px 18px; border-radius: 20px; border: 1.5px solid #e0e0e0;
+  background: white; cursor: pointer; font-family: 'Mukta', sans-serif;
+  font-size: 0.85rem; font-weight: 600; transition: all .2s;
+}
+.t-tab:hover, .t-tab.active { background: var(--sky); color: white; border-color: var(--sky); }
+
+.bus-results { display: flex; flex-direction: column; gap: 1rem; }
+.bus-card {
+  background: white; border-radius: 20px; padding: 1.4rem;
+  box-shadow: 0 4px 16px var(--shadow); border-left: 4px solid var(--sky);
+  transition: transform .2s;
+}
+.bus-card:hover { transform: translateX(4px); }
+.bus-card.cheap { border-left-color: #4caf50; }
+.bus-card.premium { border-left-color: var(--gold); }
+
+.bus-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.bus-operator { font-weight: 700; font-size: 0.95rem; flex: 1; min-width: 120px; }
+.bus-route {
+  display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem;
+}
+.bus-time { font-weight: 700; }
+.bus-arrow { color: #aaa; }
+.bus-duration { background: #f5f5f5; padding: 3px 10px; border-radius: 10px; font-size: 0.78rem; }
+.bus-fare {
+  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+  color: var(--deep-green);
+}
+.bus-type { font-size: 0.75rem; color: #888; }
+.btn-book {
+  background: var(--sky); color: white; border: none; padding: 8px 18px;
+  border-radius: 12px; font-family: 'Mukta', sans-serif; font-size: 0.85rem;
+  font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.btn-book:hover { background: #1a6d8f; }
+
+/* ─── LOGIN MODAL ─── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  z-index: 2000; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: white; border-radius: 28px; padding: 2.5rem;
+  width: min(460px, 90vw); position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  animation: modalIn .3s ease;
+}
+@keyframes modalIn { from { opacity:0; transform:scale(.94) translateY(20px); } to { opacity:1; transform:scale(1) translateY(0); } }
+.modal-close {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  background: #f5f5f5; border: none; border-radius: 50%; width: 32px; height: 32px;
+  font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.modal-close:hover { background: #e0e0e0; }
+.modal-logo { text-align: center; margin-bottom: 1.5rem; }
+.modal-logo-icon { font-size: 2.5rem; }
+.modal-logo-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep-green); font-weight: 900; }
+.modal-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; background: #f5f5f5; border-radius: 14px; padding: 4px; }
+.m-tab {
+  flex: 1; text-align: center; padding: 8px; border-radius: 10px;
+  font-family: 'Mukta', sans-serif; font-weight: 700; font-size: 0.9rem;
+  cursor: pointer; transition: all .2s; color: #888;
+}
+.m-tab.active { background: white; color: var(--deep-green); box-shadow: 0 2px 8px var(--shadow); }
+.modal-form { display: none; }
+.modal-form.active { display: block; }
+.modal-form .form-group { margin-bottom: 1rem; }
+.modal-form .form-group label { display: block; font-size: 0.82rem; font-weight: 700; color: #444; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.modal-form .form-group input {
+  width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid #e0e0e0;
+  font-family: 'Mukta', sans-serif; font-size: 0.95rem; transition: border-color .2s;
+}
+.modal-form .form-group input:focus { outline: none; border-color: var(--deep-green); }
+.btn-modal-submit {
+  width: 100%; padding: 13px; background: linear-gradient(135deg, var(--deep-green), #2a6048);
+  color: white; border: none; border-radius: 14px; font-family: 'Mukta', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 0.5rem;
+  transition: all .25s; box-shadow: 0 4px 16px rgba(27,67,50,0.3);
+}
+.btn-modal-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,67,50,0.4); }
+.modal-divider { text-align: center; color: #aaa; margin: 1rem 0; font-size: 0.85rem; position: relative; }
+.modal-divider::before, .modal-divider::after {
+  content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #e8e8e8;
+}
+.modal-divider::before { left: 0; }
+.modal-divider::after { right: 0; }
+.social-btns { display: flex; gap: 0.8rem; }
+.btn-social {
+  flex: 1; padding: 10px; border-radius: 12px; border: 1.5px solid #e0e0e0;
+  background: white; font-family: 'Mukta', sans-serif; font-size: 0.88rem;
+  font-weight: 600; cursor: pointer; transition: all .2s; display: flex;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.btn-social:hover { background: #f5f5f5; }
+
+/* ─── DESTINATION DETAIL MODAL ─── */
+.dest-detail-modal {
+  max-width: 700px; max-height: 85vh; overflow-y: auto;
+}
+.dest-detail-header {
+  height: 180px; border-radius: 16px; display: flex; align-items: center;
+  justify-content: center; font-size: 5rem; margin-bottom: 1.5rem; position: relative;
+}
+.dest-detail-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--deep-green); margin-bottom: 0.3rem; }
+.dest-detail-region { color: #888; margin-bottom: 1rem; }
+.detail-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.d-tab {
+  padding: 7px 16px; border-radius: 20px; border: 1.5px solid #e0e0e0;
+  font-family: 'Mukta', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+}
+.d-tab.active { background: var(--deep-green); color: white; border-color: var(--deep-green); }
+.detail-section { display: none; }
+.detail-section.active { display: block; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
+.info-box {
+  background: #f9f9f9; border-radius: 12px; padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+}
+.info-box-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.2rem; }
+.info-box-val { font-weight: 700; color: var(--bark); }
+.places-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.place-entry {
+  display: flex; align-items: flex-start; gap: 0.8rem; padding: 0.7rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pe-icon { font-size: 1.3rem; }
+.pe-name { font-weight: 700; font-size: 0.9rem; }
+.pe-desc { font-size: 0.8rem; color: #777; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: linear-gradient(135deg, #0d2e1e, var(--deep-green));
+  color: white; padding: 3rem 2rem 1.5rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem; max-width: 1200px; margin: 0 auto 2rem;
+}
+.footer-col h4 { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-col p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.7; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-bottom {
+  text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4); font-size: 0.8rem;
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity: 1; transform: none; transition: all .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── PROGRESS BAR ─── */
+.progress-bar {
+  height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; margin-bottom: 0.3rem;
+}
+.progress-fill { height: 100%; border-radius: 4px; transition: width .5s ease; }
+
+/* ─── TOAST ─── */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 3000;
+  background: var(--deep-green); color: white; padding: 1rem 1.5rem;
+  border-radius: 16px; font-weight: 600; font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(100px);
+  transition: transform .3s; max-width: 300px;
+}
+.toast.show { transform: translateY(0); }
+
+
+/* ─── VISUALS ─── */
+.scene{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+.dest-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),transparent 40%,transparent 72%,rgba(0,0,0,.22));z-index:1;pointer-events:none}
+.dest-detail-header{overflow:hidden;height:230px}
+.hero-scene{position:absolute;inset:0}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,26,18,.82) 0%,rgba(6,26,18,.5) 48%,rgba(6,26,18,.12) 100%)}
+.feat-img{position:relative;height:150px;margin:-1.8rem -1.8rem 1.2rem;border-radius:20px 20px 0 0;overflow:hidden}
+.page .section-header{position:relative;overflow:hidden;margin-bottom:2rem;padding:4.5rem 2rem 3.5rem}
+.sh-bg{position:absolute;inset:0}
+.sh-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,20,.6),rgba(8,30,20,.3))}
+.page .section-header>*:not(.sh-bg):not(.sh-shade){position:relative;z-index:2}
+.page .section-title{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.page .section-title span{color:var(--gold)}
+.page .section-desc{color:#eaf3ea}
+.page .section-badge{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45);color:#fff}
+.weather-main-card{position:relative;overflow:hidden}
+.wx-bg{position:absolute;inset:0;opacity:.5}
+.weather-main-card>*:not(.wx-bg){position:relative;z-index:1}
+.offer-banner{height:170px;overflow:hidden}
+.offer-banner .offer-discount{z-index:2}
+.offer-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 45%)}
+.offer-banner .offer-discount{z-index:3}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-right { display: none; }
+  nav { display: none; }
+  .mobile-menu-btn { display: flex !important; }
+  .budget-result { grid-template-columns: 1fr; }
+  .itinerary-builder { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 1rem; }
+}
+
+.mobile-menu-btn {
+  display: none; background: none; border: none; color: white; font-size: 1.4rem;
+  cursor: pointer; padding: 4px;
+}
+</style>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#" onclick="showPage('home')">
+    <span class="logo-icon">🏔️</span>
+    <div>
+      <div class="logo-text">DevBhoomiChalo</div>
+      <div class="logo-sub">.com · Land of Gods</div>
+    </div>
+  </a>
+  <nav id="main-nav">
+    <button onclick="showPage('home')" class="active" id="nav-home">🏠 Home</button>
+    <button onclick="showPage('destinations')" id="nav-destinations">🗺️ Destinations</button>
+    <button onclick="showPage('weather')" id="nav-weather">☁️ Weather</button>
+    <button onclick="showPage('planner')" id="nav-planner">📋 Trip Planner</button>
+    <button onclick="showPage('budget')" id="nav-budget">💰 Budget</button>
+    <button onclick="showPage('bus')" id="nav-bus">🚌 Bus & Travel</button>
+    <button onclick="showPage('offers')" id="nav-offers">🎁 Offers</button>
+    <button class="btn-login" onclick="openLogin()">👤 Login</button>
+  </nav>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+</header>
+
+<!-- HOME PAGE -->
+<div id="page-home">
+  <div class="hero">
+    <div class="hero-scene" id="hero-scene"></div>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">🙏 Jai Dev Bhoomi</div>
+        <h1 class="hero-title">Explore the<br><span>Land of Gods</span><br>Like Never Before</h1>
+        <p class="hero-tagline">✨ Your complete Uttarakhand travel companion</p>
+        <p class="hero-desc">From the snow-capped peaks of Munsiyari to the spiritual shores of Gangotri — plan smarter, travel richer, spend wiser. Beat the crowds, discover hidden gems, and manage every rupee of your mountain adventure.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('destinations')">🗺️ Explore Destinations</button>
+          <button class="btn-secondary" onclick="showPage('planner')">📋 Plan My Trip</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">18</div><div class="stat-label">Destinations</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free to Use</div></div>
+          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Budget Tiers</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="weather-card-hero">
+          <h4>🌤️ Sample Weather Snapshot</h4>
+          <div class="weather-mini">
+            <div class="wm-item"><span class="wm-icon">🏔️</span><span>Kedarnath: 4°C, Snowy</span></div>
+            <div class="wm-item"><span class="wm-icon">🌿</span><span>Rishikesh: 28°C, Sunny</span></div>
+            <div class="wm-item"><span class="wm-icon">🌊</span><span>Nainital: 18°C, Misty</span></div>
+            <div class="wm-item"><span class="wm-icon">🌲</span><span>Mussoorie: 15°C, Clear</span></div>
+          </div>
+        </div>
+        <div class="quick-search">
+          <h4>🔍 Quick Search</h4>
+          <div class="search-row">
+            <input type="text" id="quickSearchInput" placeholder="Search destinations...">
+            <button onclick="doQuickSearch()">🔍</button>
+          </div>
+        </div>
+        <div class="weather-card-hero">
+          <h4>💡 Travel Tip of the Day</h4>
+          <p style="font-size:0.9rem;line-height:1.6;color:rgba(255,255,255,0.85)" id="tipOfDay">Loading tip...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div style="background:#f9f5ee;padding:4rem 2rem;">
+    <div class="section-header">
+      <div class="section-badge">Why Choose Us</div>
+      <h2 class="section-title">Everything You Need for the <span>Perfect Uttarakhand Trip</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;max-width:1100px;margin:2rem auto 0;">
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid var(--deep-green);" onclick="showPage('destinations')">
+        <div class="feat-img" data-scene="3"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">18 Destinations</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">From popular spots like Nainital to hidden gems like Kanatal and Munsiyari. Filter by type, budget & crowd level.</p>
+      </div>
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid var(--sky);" onclick="showPage('weather')">
+        <div class="feat-img" data-scene="5"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">Weather & Road Alerts</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">Sample weather, road advisories, landslide warnings & best travel season guides. Live data comes next.</p>
+      </div>
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid var(--gold);" onclick="showPage('budget')">
+        <div class="feat-img" data-scene="7"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">Smart Budget Planner</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">Predictive budgeting with Budget/Mid/Luxury tiers. Track expenses, compare transport options & split bills.</p>
+      </div>
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid var(--saffron);" onclick="showPage('planner')">
+        <div class="feat-img" data-scene="8"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">Trip Planner</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">Build day-by-day itineraries with local tips, timing recommendations and personalized route planning.</p>
+      </div>
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid #9c27b0;" onclick="showPage('bus')">
+        <div class="feat-img" data-scene="6"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">Bus & Travel</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">Compare bus, shared jeep & private cab options. Sample schedules for now.</p>
+      </div>
+      <div class="reveal" style="background:white;border-radius:20px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);border-top:4px solid #e91e63;" onclick="showPage('offers')">
+        <div class="feat-img" data-scene="10"></div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--deep-green);margin-bottom:0.5rem;">Deals & Local Food</h3>
+        <p style="color:#666;font-size:0.88rem;line-height:1.6;">Sample stay offers & a guide to authentic Uttarakhand cuisine you must try.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINATIONS PAGE -->
+<div id="page-destinations" class="page">
+  <div class="section-header">
+    <div class="section-badge">Discover Uttarakhand</div>
+    <h2 class="section-title">Tourist Destinations & <span>Religious Treks</span></h2>
+    <p class="section-desc">From Char Dham pilgrimages to high-altitude treks — find your perfect Uttarakhand experience</p>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterDest('all',this)">🌟 All</button>
+    <button class="filter-btn" onclick="filterDest('religious',this)">🙏 Religious</button>
+    <button class="filter-btn" onclick="filterDest('trek',this)">🥾 Treks</button>
+    <button class="filter-btn" onclick="filterDest('popular',this)">📍 Popular</button>
+    <button class="filter-btn" onclick="filterDest('offbeat',this)">💎 Offbeat</button>
+    <button class="filter-btn" onclick="filterDest('nature',this)">🌿 Nature</button>
+    <button class="filter-btn" onclick="filterDest('adventure',this)">🏄 Adventure</button>
+  </div>
+  <div class="destinations-grid" id="destinations-grid"></div>
+</div>
+
+<!-- WEATHER PAGE -->
+<div id="page-weather" class="page">
+  <div class="section-header">
+    <div class="section-badge">Sample Conditions</div>
+    <h2 class="section-title">Weather & <span>Road Alerts</span></h2>
+    <p class="section-desc">Sample weather and road advisories for the demo. Always check official sources before you travel.</p>
+  </div>
+  <div class="weather-container">
+    <div class="weather-selector" id="weather-selector"></div>
+    <div class="weather-main-card" id="weather-main-card">
+      <div class="wx-bg" id="w-bg"></div>
+      <div class="weather-header">
+        <div>
+          <div class="weather-loc-name" id="w-loc-name">Rishikesh</div>
+          <div class="weather-loc-state">Uttarakhand, India</div>
+          <div class="weather-temp" id="w-temp">28°C</div>
+          <div class="weather-desc" id="w-desc">☀️ Sunny and pleasant — perfect for rafting!</div>
+        </div>
+        <div class="weather-icon" id="w-icon">☀️</div>
+      </div>
+      <div class="weather-details-grid" id="w-details"></div>
+    </div>
+    <div id="road-alerts"></div>
+    <div class="season-card">
+      <h3>📅 Best Time to Visit Uttarakhand</h3>
+      <div class="season-grid" id="season-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRIP PLANNER PAGE -->
+<div id="page-planner" class="page">
+  <div class="section-header">
+    <div class="section-badge">Plan Your Journey</div>
+    <h2 class="section-title">Build Your <span>Dream Itinerary</span></h2>
+    <p class="section-desc">Select places, set duration & generate a smart day-by-day travel plan</p>
+  </div>
+  <div class="planner-container">
+    <div class="itinerary-builder">
+      <div class="places-panel">
+        <h3>📍 Add Places</h3>
+        <div id="places-list"></div>
+      </div>
+      <div class="itinerary-panel">
+        <h3>🗓️ Your Itinerary</h3>
+        <div class="itinerary-controls">
+          <input type="text" id="tripName" placeholder="Trip name (e.g. Char Dham Yatra)" style="flex:1">
+          <input type="number" id="tripDays" placeholder="Days" min="1" max="15" style="width:80px">
+          <button class="btn-gen" onclick="generateItinerary()">✨ Generate</button>
+          <button class="btn-gen" style="background:linear-gradient(135deg,#c0392b,#e74c3c)" onclick="clearItinerary()">🗑️ Clear</button>
+        </div>
+        <div id="itinerary-output">
+          <div class="empty-planner">
+            <div class="empty-icon">🗺️</div>
+            <p>Add places from the left panel & click <strong>Generate</strong> to create your itinerary</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUDGET PAGE -->
+<div id="page-budget" class="page">
+  <div class="section-header">
+    <div class="section-badge">Smart Budgeting</div>
+    <h2 class="section-title">Plan Your <span>Trip Budget</span></h2>
+    <p class="section-desc">Estimate costs, track expenses & split bills for your Uttarakhand adventure</p>
+  </div>
+  <div class="budget-container">
+    <div class="budget-setup">
+      <h3>⚙️ Trip Setup</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Destination</label>
+          <select id="b-destination">
+            <option>Rishikesh</option><option>Nainital</option><option>Mussoorie</option>
+            <option>Kedarnath</option><option>Badrinath</option><option>Auli</option>
+            <option>Jim Corbett</option><option>Haridwar</option><option>Munsiyari</option>
+            <option>Valley of Flowers</option><option>Char Dham Circuit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Duration (Days)</label>
+          <input type="number" id="b-days" value="3" min="1" max="30">
+        </div>
+        <div class="form-group">
+          <label>Travellers</label>
+          <input type="number" id="b-people" value="2" min="1" max="20">
+        </div>
+        <div class="form-group">
+          <label>Origin City</label>
+          <select id="b-origin">
+            <option>Delhi</option><option>Dehradun</option><option>Haridwar</option>
+            <option>Lucknow</option><option>Chandigarh</option><option>Mumbai</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem">
+        <label>Budget Tier</label>
+        <div class="tier-selector">
+          <div class="tier-opt selected" onclick="selectTier(this,'budget')">🎒 Budget<br><small style="color:#888">Hostels & Dhabas</small></div>
+          <div class="tier-opt" onclick="selectTier(this,'mid')">🏨 Mid-Range<br><small style="color:#888">Hotels & Restaurants</small></div>
+          <div class="tier-opt" onclick="selectTier(this,'luxury')">👑 Luxury<br><small style="color:#888">Resorts & Fine Dining</small></div>
+        </div>
+      </div>
+      <button class="btn-calc" onclick="calculateBudget()">🧮 Calculate Budget</button>
+    </div>
+    <div class="budget-result" id="budget-result" style="display:none">
+      <div class="budget-breakdown">
+        <h3>💸 Cost Breakdown</h3>
+        <div id="breakdown-items"></div>
+        <div class="total-bar">
+          <div><div class="total-label">Total Estimated Cost</div><div style="font-size:0.75rem;opacity:0.7" id="total-per-person"></div></div>
+          <div class="total-amount" id="total-cost">₹0</div>
+        </div>
+        <div style="margin-top:1rem;padding:0.8rem;background:#fff3e0;border-radius:12px;font-size:0.82rem;color:#e65100">
+          💡 <strong>Off-season tip:</strong> Travel in Sep–Oct or Mar–Apr to lower <strong>accommodation costs</strong>. Figures here are estimates.
+        </div>
+      </div>
+      <div class="expense-tracker">
+        <h3>📝 Expense Tracker</h3>
+        <div class="add-expense-row">
+          <input type="text" id="exp-name" placeholder="Expense name">
+          <select id="exp-cat">
+            <option value="🍽️">🍽️ Food</option>
+            <option value="🚌">🚌 Transport</option>
+            <option value="🏨">🏨 Stay</option>
+            <option value="🎫">🎫 Entry</option>
+            <option value="🛍️">🛍️ Shopping</option>
+            <option value="⛽">⛽ Fuel</option>
+            <option value="💊">💊 Medical</option>
+            <option value="📷">📷 Other</option>
+          </select>
+          <input type="number" id="exp-amount" placeholder="₹" style="width:80px">
+          <button class="btn-add-exp" onclick="addExpense()">+</button>
+        </div>
+        <div class="expenses-list" id="expenses-list"></div>
+        <div style="margin-top:0.8rem;padding:0.8rem;background:#f5f5f5;border-radius:12px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.85rem;color:#555">Total Spent</span>
+          <span style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--saffron)" id="total-spent">₹0</span>
+        </div>
+      </div>
+      <div class="split-bill">
+        <h3>👥 Split Bill Calculator</h3>
+        <div class="split-controls">
+          <div class="form-group" style="flex:1">
+            <label>Total Amount (₹)</label>
+            <input type="number" id="split-total" placeholder="Total to split">
+          </div>
+          <div class="form-group" style="flex:1">
+            <label>Number of People</label>
+            <input type="number" id="split-people" placeholder="No. of people" min="2">
+          </div>
+          <button class="btn-calc" style="margin-top:1.2rem" onclick="calcSplit()">Split!</button>
+        </div>
+        <div class="split-result" id="split-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUS & TRAVEL PAGE -->
+<div id="page-bus" class="page">
+  <div class="section-header">
+    <div class="section-badge">Transport</div>
+    <h2 class="section-title">Bus & <span>Travel Options</span></h2>
+    <p class="section-desc">Compare bus, jeep & cab options. Schedules and fares below are sample data for the demo.</p>
+  </div>
+  <div class="bus-container">
+    <div class="bus-search-form">
+      <h3>🔍 Search Routes</h3>
+      <div class="transport-tabs">
+        <button class="t-tab active" onclick="setTransportTab(this,'bus')">🚌 UTC Bus</button>
+        <button class="t-tab" onclick="setTransportTab(this,'jeep')">🚙 Shared Jeep</button>
+        <button class="t-tab" onclick="setTransportTab(this,'cab')">🚗 Private Cab</button>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>From</label>
+          <select id="bus-from">
+            <option>Dehradun</option><option>Haridwar</option><option>Rishikesh</option>
+            <option>Delhi</option><option>Nainital</option><option>Haldwani</option>
+            <option>Kathgodam</option><option>Kotdwar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>To</label>
+          <select id="bus-to">
+            <option>Mussoorie</option><option>Kedarnath</option><option>Badrinath</option>
+            <option>Gangotri</option><option>Yamunotri</option><option>Auli</option>
+            <option>Munsiyari</option><option>Lansdowne</option><option>Chakrata</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="bus-date">
+        </div>
+        <div class="form-group">
+          <label>Passengers</label>
+          <input type="number" id="bus-pass" value="1" min="1" max="50">
+        </div>
+      </div>
+      <button class="btn-calc" onclick="searchBuses()">🔍 Search</button>
+    </div>
+    <div class="bus-results" id="bus-results"></div>
+  </div>
+</div>
+
+<!-- OFFERS PAGE -->
+<div id="page-offers" class="page">
+  <div class="section-header">
+    <div class="section-badge">Sample Offers</div>
+    <h2 class="section-title">Special Offers & <span>Local Food Guide</span></h2>
+    <p class="section-desc">Example stay and tour offers for the demo, plus authentic Uttarakhand cuisine you must try</p>
+  </div>
+  <div class="offers-container">
+    <div class="offers-grid" id="offers-grid"></div>
+    <div class="food-section">
+      <h2>🍛 Must-Try Uttarakhand Food</h2>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINATION DETAIL MODAL -->
+<div class="modal-overlay" id="dest-modal">
+  <div class="modal dest-detail-modal" id="dest-modal-content"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
+        <span style="font-size:2rem">🏔️</span>
+        <div>
+          <div style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.3rem;font-weight:900">DevBhoomiChalo.com</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:2px">Land of Gods · BCA AI &amp; DS project</div>
+        </div>
+      </div>
+      <p>Your complete digital companion for exploring Uttarakhand — the Land of Gods. Discover, plan, budget & travel smarter.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('destinations')">All Destinations</a></li>
+        <li><a href="#" onclick="showPage('destinations')">Religious Treks</a></li>
+        <li><a href="#" onclick="showPage('destinations')">Offbeat Places</a></li>
+        <li><a href="#" onclick="showPage('weather')">Weather Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Plan</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('planner')">Trip Planner</a></li>
+        <li><a href="#" onclick="showPage('budget')">Budget Calculator</a></li>
+        <li><a href="#" onclick="showPage('bus')">Bus & Travel</a></li>
+        <li><a href="#" onclick="showPage('offers')">Deals & Offers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Team Fantastic 4</h4>
+      <ul>
+        <li><a>Aaditya Singh (lead)</a></li>
+        <li><a>Bandana Khati</a></li>
+        <li><a>Yogesh Vyas</a></li>
+        <li><a>Rashmi Negi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    🙏 A student project made with love for Devbhoomi · Place data, prices and schedules are approximate samples
+  </div>
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+const destinations = [
+  { id:1, name:"Rishikesh", region:"Tehri Garhwal", emoji:"🕉️", type:["religious","adventure","popular"], crowd:"High", bg:"linear-gradient(135deg,#1a5c2a,#2d9748)", desc:"Yoga capital of the world & adventure hub on the Ganges. Famous for white water rafting, bungee jumping & spiritual retreats.", best:"Oct–Apr", altitude:"372m", dist:"250km from Delhi", tags:["popular","adventure"], budget:{budget:"₹800–1,200/day",mid:"₹2,000–3,500/day",luxury:"₹5,000+/day"}, places:["Laxman Jhula","Ram Jhula","Triveni Ghat Aarti","Beatles Ashram","Neelkanth Mahadev","Rajaji NP","Camping at Shivpuri"] },
+  { id:2, name:"Haridwar", region:"Haridwar District", emoji:"🪔", type:["religious","popular"], crowd:"High", bg:"linear-gradient(135deg,#d4a017,#c0392b)", desc:"One of the seven holiest Hindu cities. The sacred Ganga aarti at Har Ki Pauri is a spiritual experience like no other.", best:"Oct–Jun", altitude:"314m", dist:"214km from Delhi", tags:["religious","popular"], budget:{budget:"₹600–1,000/day",mid:"₹1,500–2,500/day",luxury:"₹4,000+/day"}, places:["Har Ki Pauri","Ganga Aarti","Mansa Devi Temple","Chandi Devi","Maya Devi Temple","Sapt Rishi Ashram"] },
+  { id:3, name:"Kedarnath", region:"Rudraprayag", emoji:"⛪", type:["religious","trek"], crowd:"Medium", bg:"linear-gradient(135deg,#2c3e50,#4a6fa5)", desc:"One of the 12 Jyotirlingas at 3,584m altitude. A divine pilgrimage through scenic Himalayan landscape.", best:"May–Jun, Sep–Oct", altitude:"3,584m", dist:"260km from Rishikesh", tags:["religious","trek"], budget:{budget:"₹1,500–2,500/day",mid:"₹3,500–5,000/day",luxury:"₹8,000+/day"}, places:["Kedarnath Temple","Vasuki Tal Trek","Chorabari Lake","Bhairavnath Temple","Gaurikund"] },
+  { id:4, name:"Badrinath", region:"Chamoli", emoji:"🙏", type:["religious","trek"], crowd:"Medium", bg:"linear-gradient(135deg,#1a3a5c,#2980b9)", desc:"Sacred Char Dham shrine dedicated to Lord Vishnu at the Alaknanda river, flanked by snow peaks.", best:"May–Oct", altitude:"3,133m", dist:"300km from Rishikesh", tags:["religious","trek"], budget:{budget:"₹1,500–2,000/day",mid:"₹3,000–5,000/day",luxury:"₹7,000+/day"}, places:["Badrinath Temple","Mana Village (Last Indian Village)","Vasudhara Falls","Tapt Kund","Brahma Kapal"] },
+  { id:5, name:"Nainital", region:"Kumaon", emoji:"🏔️", type:["popular","nature"], crowd:"Very High", bg:"linear-gradient(135deg,#1a5c4a,#27ae60)", desc:"The 'Lake District of India' — a charming hill station built around the iconic Naini Lake with colonial architecture.", best:"Mar–Jun, Oct–Nov", altitude:"2,084m", dist:"300km from Delhi", tags:["popular","nature"], budget:{budget:"₹1,000–1,800/day",mid:"₹2,500–4,500/day",luxury:"₹6,000+/day"}, places:["Naini Lake Boating","Snow View Point","Naina Devi Temple","Mall Road","Tiffin Top","Jim Corbett nearby","Bhimtal"] },
+  { id:6, name:"Mussoorie", region:"Dehradun", emoji:"🌲", type:["popular","nature"], crowd:"Very High", bg:"linear-gradient(135deg,#2d5016,#5d8a27)", desc:"'Queen of Hills' offering panoramic Himalayan views, colonial heritage and the famous Kempty Falls.", best:"Apr–Jun, Sep–Nov", altitude:"2,005m", dist:"290km from Delhi", tags:["popular","nature"], budget:{budget:"₹1,200–2,000/day",mid:"₹3,000–5,000/day",luxury:"₹7,000+/day"}, places:["Gun Hill","Kempty Falls","Landour","Company Garden","Cloud's End","Camel's Back Road"] },
+  { id:7, name:"Munsiyari", region:"Pithoragarh", emoji:"❄️", type:["offbeat","nature","trek"], crowd:"Low", bg:"linear-gradient(135deg,#1a3a5c,#7f8c8d)", desc:"The 'Little Kashmir of Uttarakhand' — a remote paradise with Panchachuli peaks backdrop and rare flora/fauna.", best:"Apr–Jun, Sep–Nov", altitude:"2,200m", dist:"530km from Delhi", tags:["offbeat","trek"], budget:{budget:"₹800–1,200/day",mid:"₹2,000–3,500/day",luxury:"₹5,000+/day"}, places:["Khaliya Top Trek","Thamri Kund","Birthi Falls","Darkot Village","Milam Glacier Trek","Nanda Devi views"] },
+  { id:8, name:"Valley of Flowers", region:"Chamoli", emoji:"🌸", type:["trek","nature"], crowd:"Medium", bg:"linear-gradient(135deg,#6a1b4d,#ad1457)", desc:"UNESCO World Heritage Site — a magical valley bursting with hundreds of species of alpine flowers after monsoon.", best:"Jul–Sep", altitude:"3,658m", dist:"500km from Delhi", tags:["trek","nature"], budget:{budget:"₹2,000–3,000/day",mid:"₹4,000–6,000/day",luxury:"N/A"}, places:["Valley of Flowers Trek","Hemkund Sahib","Ghangaria","Pushpawati River"] },
+  { id:9, name:"Auli", region:"Chamoli", emoji:"⛷️", type:["adventure","offbeat"], crowd:"Low-Medium", bg:"linear-gradient(135deg,#1a3a5c,#2980b9)", desc:"India's premier ski destination with Asia's longest cable car and breathtaking views of Nanda Devi.", best:"Jan–Mar (Ski), Jun–Sep (Trekking)", altitude:"2,519m", dist:"500km from Delhi", tags:["adventure","offbeat"], budget:{budget:"₹1,500–2,500/day",mid:"₹3,000–5,500/day",luxury:"₹8,000+/day"}, places:["Auli Ski Resort","Gorson Bugyal Trek","Joshimath","Nanda Devi Viewpoint","Cable Car Ride"] },
+  { id:10, name:"Jim Corbett", region:"Nainital", emoji:"🐯", type:["nature","popular"], crowd:"High", bg:"linear-gradient(135deg,#3d2b1f,#8b5e3c)", desc:"India's oldest national park — a haven for Bengal tigers, Asian elephants and 600+ bird species.", best:"Nov–Jun", altitude:"1,300m", dist:"245km from Delhi", tags:["nature","popular"], budget:{budget:"₹2,500–4,000/day",mid:"₹5,000–8,000/day",luxury:"₹12,000+/day"}, places:["Dhikala Zone Safari","Bijrani Zone","Corbett Museum","Ramganga River","Kalagarh Dam"] },
+  { id:11, name:"Kanatal", region:"Tehri Garhwal", emoji:"🌄", type:["offbeat","nature"], crowd:"Very Low", bg:"linear-gradient(135deg,#2d5016,#4a7c20)", desc:"A pristine offbeat retreat surrounded by dense oak and rhododendron forests with stunning Himalayan views.", best:"Mar–Jun, Sep–Nov", altitude:"2,590m", dist:"320km from Delhi", tags:["offbeat","nature"], budget:{budget:"₹1,200–1,800/day",mid:"₹2,500–4,000/day",luxury:"₹6,000+/day"}, places:["Kodia Jungle Trek","Apple Orchards","Surkanda Devi Temple","Tehri Lake nearby","Camping sites"] },
+  { id:12, name:"Gangotri", region:"Uttarkashi", emoji:"🌊", type:["religious","trek"], crowd:"Medium", bg:"linear-gradient(135deg,#1a5c4a,#0d3a2e)", desc:"Origin of River Ganga & Char Dham pilgrimage site. The Gangotri Temple sits at 3,048m amid spectacular scenery.", best:"May–Oct", altitude:"3,048m", dist:"300km from Rishikesh", tags:["religious","trek"], budget:{budget:"₹1,000–1,800/day",mid:"₹2,500–4,000/day",luxury:"₹6,000+/day"}, places:["Gangotri Temple","Gaumukh Glacier Trek","Tapovan","Bhairavghati","Surya Kund"] },
+  { id:13, name:"Chopta", region:"Rudraprayag", emoji:"🌿", type:["offbeat","trek","nature"], crowd:"Low", bg:"linear-gradient(135deg,#1b4332,#40916c)", desc:"'Mini Switzerland of India' — a hidden meadow with the highest Shiva temple (Tungnath) and 360° Himalayan views.", best:"Apr–Jun, Sep–Nov", altitude:"2,680m", dist:"430km from Delhi", tags:["offbeat","trek"], budget:{budget:"₹800–1,200/day",mid:"₹2,000–3,500/day",luxury:"₹5,000+/day"}, places:["Tungnath Temple (Highest Shiva Temple)","Chandrashila Peak Trek","Deoria Tal","Ukhimath","Rohini Bugyal"] },
+  { id:14, name:"Lansdowne", region:"Pauri Garhwal", emoji:"🍂", type:["offbeat","nature"], crowd:"Very Low", bg:"linear-gradient(135deg,#4a3728,#7d5a3c)", desc:"A serene British-era cantonment town largely undiscovered by mass tourism — perfect for a peaceful retreat.", best:"Oct–Jun", altitude:"1,706m", dist:"260km from Delhi", tags:["offbeat","nature"], budget:{budget:"₹800–1,500/day",mid:"₹1,800–3,000/day",luxury:"₹4,000+/day"}, places:["Tip N Top","Bhulla Lake","Garhwal Rifles War Memorial","Santoshi Mata Mandir","Kaleshwar Mahadev"] },
+  { id:15, name:"Roopkund", region:"Chamoli", emoji:"💀", type:["trek"], crowd:"Low", bg:"linear-gradient(135deg,#1a2a4a,#2c3e6e)", desc:"'Mystery Lake' at 5,029m famous for skeletal remains found at its shore. One of India's most challenging treks.", best:"May–Jun, Sep–Oct", altitude:"5,029m", dist:"500km from Delhi", tags:["trek","adventure"], budget:{budget:"₹3,000–5,000/day",mid:"₹6,000–8,000/day",luxury:"N/A"}, places:["Roopkund Lake","Bedni Bugyal","Ali Bugyal","Wan Village","Homkund"] },
+  { id:16, name:"Dehradun", region:"Dehradun District", emoji:"🏙️", type:["popular","nature"], crowd:"High", bg:"linear-gradient(135deg,#2d4016,#5a7a28)", desc:"Capital city nestled in a valley — gateway to popular Uttarakhand destinations with its own colonial charm.", best:"Oct–Jun", altitude:"640m", dist:"280km from Delhi", tags:["popular","nature"], budget:{budget:"₹800–1,500/day",mid:"₹2,000–3,500/day",luxury:"₹5,000+/day"}, places:["Robber's Cave","Sahastradhara","Mindrolling Monastery","Clock Tower","Tapkeshwar Temple","Forest Research Institute"] },
+  { id:17, name:"Yamunotri", region:"Uttarkashi", emoji:"🔥", type:["religious","trek"], crowd:"Medium", bg:"linear-gradient(135deg,#7a2d00,#c0392b)", desc:"Source of River Yamuna & one of Char Dham sites. The hot springs of Janki Chatti are a spiritual wonder.", best:"May–Oct", altitude:"3,293m", dist:"250km from Haridwar", tags:["religious","trek"], budget:{budget:"₹1,200–2,000/day",mid:"₹2,800–4,500/day",luxury:"₹6,000+/day"}, places:["Yamunotri Temple","Surya Kund Hot Springs","Divya Shila","Janki Chatti","Kharsali Village"] },
+  { id:18, name:"Bhimtal", region:"Nainital", emoji:"🏞️", type:["offbeat","nature"], crowd:"Low", bg:"linear-gradient(135deg,#1a4a3a,#2d8a6a)", desc:"A quieter, more affordable alternative to Nainital with its own lake and a floating island aquarium in the middle.", best:"Oct–Jun", altitude:"1,371m", dist:"320km from Delhi", tags:["offbeat","nature"], budget:{budget:"₹700–1,200/day",mid:"₹1,800–3,000/day",luxury:"₹4,500+/day"}, places:["Bhimtal Lake","Aquarium on Island","Hideout Camp","Naukuchiatal","Sattal"] },
+];
+
+const weatherData = {
+  "Rishikesh": { temp:"28°C", icon:"☀️", desc:"Sunny and pleasant — perfect for rafting!", humidity:"62%", wind:"12 km/h", visibility:"25km", uvIndex:"7", feelsLike:"31°C", alert:{type:"safe",msg:"Roads Clear",detail:"All roads operational. NH 58 is open. Good time to travel by road."} },
+  "Nainital": { temp:"18°C", icon:"🌫️", desc:"Misty with light fog in mornings. Carry a light jacket.", humidity:"78%", wind:"8 km/h", visibility:"10km", uvIndex:"4", feelsLike:"16°C", alert:{type:"caution",msg:"Morning Fog Advisory",detail:"Light fog on Kaladhungi-Nainital road in early mornings. Drive carefully 6–9 AM."} },
+  "Kedarnath": { temp:"4°C", icon:"🌨️", desc:"Cold with snowfall expected. Bundle up properly!", humidity:"85%", wind:"22 km/h", visibility:"5km", uvIndex:"2", feelsLike:"-2°C", alert:{type:"danger",msg:"Heavy Snowfall Alert",detail:"Sample alert: heavy snow is possible above 3000m. Trek status changes often, so confirm with local authorities."} },
+  "Mussoorie": { temp:"15°C", icon:"⛅", desc:"Partly cloudy with pleasant cool breeze.", humidity:"70%", wind:"15 km/h", visibility:"18km", uvIndex:"5", feelsLike:"13°C", alert:{type:"safe",msg:"Roads Clear",detail:"Mussoorie-Dehradun road fully open. Pleasant conditions for travel."} },
+  "Haridwar": { temp:"32°C", icon:"🌤️", desc:"Hot and sunny. Stay hydrated during pilgrimage.", humidity:"55%", wind:"10 km/h", visibility:"30km", uvIndex:"9", feelsLike:"35°C", alert:{type:"caution",msg:"Heat Advisory",detail:"Temperatures above 32°C. Carry water bottles. Early morning visit recommended."} },
+  "Auli": { temp:"-2°C", icon:"❄️", desc:"Excellent skiing conditions! Fresh powder snow.", humidity:"80%", wind:"18 km/h", visibility:"8km", uvIndex:"3", feelsLike:"-8°C", alert:{type:"caution",msg:"Road Advisory",detail:"Joshimath-Auli road may have black ice. Chains recommended for vehicles."} },
+  "Jim Corbett": { temp:"25°C", icon:"🌤️", desc:"Warm and clear — ideal wildlife safari weather.", humidity:"48%", wind:"6 km/h", visibility:"35km", uvIndex:"8", feelsLike:"27°C", alert:{type:"safe",msg:"Safari Conditions Excellent",detail:"All safari zones operational. Visibility is excellent for wildlife spotting."} },
+  "Munsiyari": { temp:"8°C", icon:"🌤️", desc:"Clear skies with stunning Panchachuli peak views.", humidity:"65%", wind:"14 km/h", visibility:"50km", uvIndex:"6", feelsLike:"5°C", alert:{type:"safe",msg:"Roads Open",detail:"Sample advisory: confirm road status before you travel."} },
+};
+
+const seasons = [
+  {month:"January", label:"Winter", status:"avoid", icon:"🥶", tip:"Very cold, some roads shut"},
+  {month:"February", label:"Winter", status:"avoid", icon:"❄️", tip:"Snow season"},
+  {month:"March", label:"Shoulder", status:"shoulder", icon:"🌸", tip:"Blooming flowers, 25% off stays"},
+  {month:"April", label:"Shoulder", status:"shoulder", icon:"🌺", tip:"Rhododendrons bloom, great weather"},
+  {month:"May", label:"Peak Season", status:"best", icon:"☀️", tip:"Best for Char Dham Yatra"},
+  {month:"June", label:"Pre-Monsoon", status:"best", icon:"🌿", tip:"Valley of Flowers opening"},
+  {month:"July", label:"Monsoon", status:"avoid", icon:"🌧️", tip:"Landslide risk, avoid hill roads"},
+  {month:"August", label:"Monsoon", status:"avoid", icon:"⛈️", tip:"Heavy rains, restricted travel"},
+  {month:"September", label:"Shoulder", status:"shoulder", icon:"🍁", tip:"Post-monsoon greenery, 30% off"},
+  {month:"October", label:"Shoulder", status:"shoulder", icon:"🍂", tip:"Crystal clear skies, best views"},
+  {month:"November", label:"Best Season", status:"best", icon:"🌟", tip:"Ideal weather, fewer crowds"},
+  {month:"December", label:"Winter Begins", status:"avoid", icon:"🌨️", tip:"High altitude routes close"},
+];
+
+const offers = [
+  {emoji:"🏡", bg:"linear-gradient(135deg,#e8f5e9,#c8e6c9)", title:"Homestay Special – Munsiyari", desc:"Stay with local families in Munsiyari. Includes home-cooked meals, guided local walks & cultural experience.", discount:"Sample", validity:"Example listing"},
+  {emoji:"🚣", bg:"linear-gradient(135deg,#e3f2fd,#bbdefb)", title:"Rishikesh Adventure Package", desc:"2 nights + rafting + bungee + cliff jumping + bonfire camp. Best value adventure combo.", discount:"Sample", validity:"Example listing"},
+  {emoji:"🛕", bg:"linear-gradient(135deg,#fff3e0,#ffe0b2)", title:"Char Dham Yatra Package", desc:"10-day guided Char Dham circuit with accommodation, meals & transport fully managed.", discount:"Sample", validity:"Example listing"},
+  {emoji:"🏕️", bg:"linear-gradient(135deg,#f3e5f5,#e1bee7)", title:"Valley of Flowers Trek Camp", desc:"5-day guided trek with camping gear, meals and permits for Valley of Flowers & Hemkund Sahib.", discount:"Sample", validity:"Example listing"},
+  {emoji:"🏨", bg:"linear-gradient(135deg,#e8eaf6,#c5cae9)", title:"Mussoorie Weekend Getaway", desc:"2-night stay at a heritage hotel on Mall Road. Includes breakfast, evening tea & sightseeing.", discount:"Sample", validity:"Example listing"},
+  {emoji:"🐯", bg:"linear-gradient(135deg,#fbe9e7,#ffccbc)", title:"Jim Corbett Jungle Safari Deal", desc:"2-night jungle resort stay with morning & evening safari. Best wildlife experience guaranteed.", discount:"Sample", validity:"Example listing"},
+];
+
+const foods = [
+  {emoji:"🍲", name:"Kafuli", desc:"Spinach & fenugreek curry — Uttarakhand's signature green dish", price:"₹80–120"},
+  {emoji:"🫓", name:"Aloo Ke Gutke", desc:"Spiced pan-fried potatoes with jakhiya seeds", price:"₹60–90"},
+  {emoji:"🥘", name:"Chainsoo", desc:"Black lentil dal tempered with mustard & garlic", price:"₹70–100"},
+  {emoji:"🧆", name:"Bal Mithai", desc:"Fudge-like sweet coated in white sugar balls — Kumaon specialty", price:"₹40–60/piece"},
+  {emoji:"🥞", name:"Mandua Roti", desc:"Iron-rich finger millet flatbread with ghee", price:"₹30–50"},
+  {emoji:"🍜", name:"Gahat Soup", desc:"Horse gram soup — warming winter staple", price:"₹60–80"},
+  {emoji:"🫕", name:"Phaanu", desc:"Mixed pulse stew slow-cooked on wood fire", price:"₹80–120"},
+  {emoji:"🍮", name:"Singori", desc:"Cone-shaped sweet wrapped in maalu leaf — Kumaon dessert", price:"₹20–30"},
+  {emoji:"🌯", name:"Dubke", desc:"Slow-cooked black-eyed peas in tangy gravy", price:"₹70–100"},
+  {emoji:"🫖", name:"Buransh Juice", desc:"Refreshing rhododendron flower drink from the hills", price:"₹30–50"},
+  {emoji:"🥣", name:"Jhangora Kheer", desc:"Barnyard millet pudding with jaggery", price:"₹50–80"},
+  {emoji:"🍛", name:"Bhatt Ki Churdkani", desc:"Black soybean curry unique to Kumaon hills", price:"₹80–110"},
+];
+
+const busData = [
+  {operator:"UTC Volvo Express",from:"Dehradun",to:"Mussoorie",dep:"06:00",arr:"07:45",dur:"1h 45m",fare:150,type:"AC Volvo",seats:12,cls:"cheap"},
+  {operator:"UTC Ordinary Bus",from:"Dehradun",to:"Mussoorie",dep:"07:30",arr:"09:30",dur:"2h 00m",fare:65,type:"Ordinary",seats:28,cls:"cheap"},
+  {operator:"Shared Jeep",from:"Rishikesh",to:"Badrinath",dep:"05:00",arr:"14:00",dur:"9h 00m",fare:450,type:"Shared SUV",seats:4,cls:""},
+  {operator:"UTC Deluxe",from:"Haridwar",to:"Kedarnath Base",dep:"04:30",arr:"12:00",dur:"7h 30m",fare:380,type:"Deluxe",seats:18,cls:""},
+  {operator:"Uttarakhand Tourism Bus",from:"Delhi",to:"Nainital",dep:"22:00",arr:"07:00",dur:"9h 00m",fare:650,type:"AC Sleeper",seats:6,cls:"premium"},
+  {operator:"Shared Jeep",from:"Munsiyari",to:"Pithoragarh",dep:"06:00",arr:"10:00",dur:"4h 00m",fare:280,type:"Shared SUV",seats:3,cls:"cheap"},
+  {operator:"UTC Luxury",from:"Dehradun",to:"Delhi",dep:"08:00",arr:"14:00",dur:"6h 00m",fare:900,type:"Luxury AC",seats:20,cls:"premium"},
+  {operator:"GMOU Bus",from:"Rishikesh",to:"Gangotri",dep:"05:30",arr:"14:30",dur:"9h 00m",fare:420,type:"Deluxe",seats:8,cls:""},
+];
+
+const tips = [
+  "🌿 Visit Chopta instead of crowded Tungnath entry points — similar views, usually cheaper stays!",
+  "🎒 Pack layers, not bulky jackets. Uttarakhand weather can shift dramatically within hours.",
+  "🚌 Buses are usually much cheaper than private cabs for the same route. Early morning slots fill first.",
+  "📅 September–October shoulder season often brings lower stay prices across Uttarakhand.",
+  "💧 Always carry water purification tablets for high-altitude treks beyond 3000m.",
+  "🏡 Homestays in Munsiyari and Kanatal often cost less than hotels and offer authentic local meals.",
+  "⛽ Petrol stations are scarce beyond Joshimath — fill your tank before heading to higher altitudes.",
+  "📱 Download offline maps; mobile networks disappear on many mountain roads.",
+];
+
+
+// ─── VISUALS ────────────────────────────────────────────────────────────────
+// Every place gets an illustration drawn in code (no image files needed).
+// To use a real photo instead, add it to PHOTOS by destination id, e.g.
+//   const PHOTOS = {3:'images/kedarnath.jpg', 1:'images/rishikesh.jpg'};
+// Ids: 1 Rishikesh, 2 Haridwar, 3 Kedarnath, 4 Badrinath, 5 Nainital, 6 Mussoorie,
+// 7 Munsiyari, 8 Valley of Flowers, 9 Auli, 10 Jim Corbett, 11 Kanatal, 12 Gangotri,
+// 13 Chopta, 14 Lansdowne, 15 Roopkund, 16 Dehradun, 17 Yamunotri, 18 Bhimtal
+const PHOTOS = {};
+
+let W=600,H=400,K=1,UID=0;
+const HOUSES=['#f2d7a8','#e9a98f','#9fc0d6','#cfe0a4','#f0bd45','#c9a3cb'];
+const rngOf=s=>{s=s*7919+13;return()=>(s=(s*16807)%2147483647)/2147483647};
+const ptsOf=a=>a.map(p=>p[0].toFixed(0)+','+p[1].toFixed(0)).join(' L');
+function ridgeP(r,base,amp,step,sharp){const a=[];for(let x=-step;x<=W+step;x+=step){const pk=r()<sharp?1:.4;a.push([x,base-(r()*amp*pk+amp*.3*Math.sin(x/(W/6)))])}return a}
+const fillP=(a,c)=>`<path d="M${a[0][0]},${H} L${ptsOf(a)} L${a[a.length-1][0]},${H}Z" fill="${c}"/>`;
+function yAt(a,x){for(let i=1;i<a.length;i++){if(a[i][0]>=x){const p=a[i-1],q=a[i],t=(x-p[0])/((q[0]-p[0])||1);return p[1]+(q[1]-p[1])*t}}return a[a.length-1][1]}
+function pines(a,c,size,gap,r){let o='';for(let x=gap/2;x<W;x+=gap*(.7+r()*.6)){const y=yAt(a,x)+2,s=size*(.7+r()*.6);o+=`<path d="M${x.toFixed(0)},${(y-s*2.2).toFixed(0)}L${(x-s*.6).toFixed(0)},${y.toFixed(0)}L${(x+s*.6).toFixed(0)},${y.toFixed(0)}Z"/>`}return `<g fill="${c}">${o}</g>`}
+const g=(x,y,body)=>`<g transform="translate(${x.toFixed(0)},${y.toFixed(0)}) scale(${K.toFixed(2)})">${body}</g>`;
+
+const SCENES={
+ 1:{sky:['#f7b267','#fde8c4'],sun:[.72,.3,34,'#fff4cf'],far:'#8aa4bd',snow:.34,mid:['#5a9460','#356f48'],ground:'river',feats:[['bridge'],['town',.1,.72,10],['town',.9,.74,8],['temple',.84,.74],['birds']]},
+ 2:{sky:['#f59e7c','#fbd9a8'],sun:[.5,.56,40,'#ffe9a8'],far:'#9fb0c5',mid:['#4f8a5f','#2f6b45'],ground:'river',feats:[['temple',.22,.72],['temple',.8,.7],['diyas'],['birds']]},
+ 3:{sky:['#2d4a6e','#e9b7a0'],sun:[.3,.4,30,'#ffd9a0'],far:'#7d95b0',snow:.52,mid:['#6b7f6a','#51604f'],ground:'rock',feats:[['temple',.52,.8,'#8c8c88','#5f5f5f'],['mist']]},
+ 4:{sky:['#6d8fb5','#d9e6ef'],far:'#8ba2b8',snow:.46,mid:['#7a8f6a','#5d6e50'],ground:'river',water:'#7fb3c8',feats:[['temple',.5,.78,'#f0a030','#2e86ab'],['town',.2,.8,6],['town',.82,.8,6]]},
+ 5:{sky:['#9db8cf','#e6eef3'],far:'#9db0c2',mid:['#4f7f62','#2f5f46'],ground:'lake',water:['#3d7f8f','#2b5f70'],feats:[['town',.72,.72,10],['boats'],['mist']]},
+ 6:{sky:['#1e2a4a','#e9a37a'],night:1,far:'#5d6f92',snow:.36,mid:['#3f5f4f','#2a4538'],ground:'forest',feats:[['town',.5,.74,22],['lights']]},
+ 7:{sky:['#5b86b5','#cfe3f2'],far:'#7f9db8',snow:.5,mid:['#6f9d5f','#4b7a46'],ground:'meadow',feats:[['town',.3,.8,9],['town',.7,.82,6],['birds']]},
+ 8:{sky:['#7fb7e0','#e6f3fb'],far:'#86a3bd',snow:.44,mid:['#5fa05a','#3d7f45'],ground:'meadow',flowers:['#e0568b','#f2c14e','#ffffff','#9b6fd0'],feats:[['mist']]},
+ 9:{sky:['#8fb6dd','#eef6fc'],far:'#9fb4c8',snow:.58,mid:['#cfdfeb','#b4cadb'],treeColor:'#2f5a45',ground:'snow',feats:[['cable']]},
+ 10:{sky:['#f2b46b','#fde7b8'],sun:[.5,.5,36,'#fff0c0'],far:'#a8b79b',mid:['#6d8f3f','#4a6f2c'],ground:'forest',feats:[['rays'],['sal']]},
+ 11:{sky:['#9ec3e6','#eaf4fb'],far:'#8aa6c0',snow:.4,mid:['#4f8a4f','#2f6a3a'],ground:'meadow',feats:[['tents'],['town',.76,.8,5]]},
+ 12:{sky:['#6f93b8','#dcebf5'],far:'#8da3b8',snow:.52,mid:['#78856f','#5c6a55'],ground:'river',water:'#8fc3d6',feats:[['glacier'],['temple',.26,.8,'#f5f1e6','#c7452b']]},
+ 13:{sky:['#86b6d8','#e8f4fa'],far:'#88a2bd',snow:.44,mid:['#4f9156','#2f6f40'],ground:'meadow',flowers:['#e0568b','#f2a1c0'],feats:[['tents'],['temple',.76,.5,'#f3ecdd','#8a5a44']]},
+ 14:{sky:['#e8b98c','#fbe6c9'],far:'#9aa98e',mid:['#8b8a3f','#6a7a36'],ground:'forest',feats:[['town',.5,.78,7]]},
+ 15:{sky:['#3a5f8f','#cfe0ee'],far:'#a9b8c8',snow:.8,mid:['#8a8f94','#6d7378'],noTrees:1,ground:'snow',feats:[['frozenlake'],['tents']]},
+ 16:{sky:['#8ec1e8','#f1f7fb'],far:'#9fb3c6',snow:.3,mid:['#6aa05f','#3f7a4a'],ground:'forest',feats:[['town',.5,.8,24],['clock']]},
+ 17:{sky:['#5e7fa3','#e8d3c4'],far:'#7e90a5',snow:.46,mid:['#6a7a5f','#4d5a47'],ground:'rock',feats:[['temple',.4,.8,'#e8d8b8','#c0392b'],['steam'],['mist']]},
+ 18:{sky:['#a9c9e0','#eef5f9'],far:'#9fb2c3',mid:['#58915f','#37704a'],ground:'lake',water:['#4d9a87','#327a6a'],feats:[['island'],['boats']]}
+};
+
+function scene(id,w=600,h=400){
+  const S=SCENES[id];if(!S)return '';
+  W=w;H=h;K=h/400;
+  const r=rngOf(id+3),u='s'+(++UID);
+  let o=`<svg class="scene" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">`;
+  o+=`<defs><linearGradient id="${u}k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.sky[0]}"/><stop offset="1" stop-color="${S.sky[1]}"/></linearGradient><radialGradient id="${u}g"><stop offset="0" stop-color="${S.sun?S.sun[3]:'#fff'}" stop-opacity=".9"/><stop offset="1" stop-color="${S.sun?S.sun[3]:'#fff'}" stop-opacity="0"/></radialGradient><filter id="${u}b"><feGaussianBlur stdDeviation="${(7*K).toFixed(1)}"/></filter></defs>`;
+  o+=`<rect width="${W}" height="${H}" fill="url(#${u}k)"/>`;
+  if(S.night)for(let i=0;i<45;i++)o+=`<circle cx="${(r()*W).toFixed(0)}" cy="${(r()*H*.45).toFixed(0)}" r="${(.6+r()*1.1).toFixed(1)}" fill="#fff" opacity="${(.4+r()*.5).toFixed(2)}"/>`;
+  if(S.sun){const[sx,sy,sr,sc]=S.sun;o+=`<circle cx="${W*sx}" cy="${H*sy}" r="${sr*K*3.2}" fill="url(#${u}g)"/><circle cx="${W*sx}" cy="${H*sy}" r="${sr*K}" fill="${sc}"/>`}
+  // far range with snow
+  const far=ridgeP(r,H*.62,H*.5,W/16,.65);
+  o+=fillP(far,S.far);
+  if(S.snow){const sy=H*S.snow;let cp=`M0,0 H${W} V${sy}`;for(let i=20;i>=0;i--){cp+=` L${(i*W/20).toFixed(0)},${(sy+(i%2?1:-1)*H*.022*(r()+.3)).toFixed(0)}`}cp+='Z';o+=`<clipPath id="${u}c"><path d="${cp}"/></clipPath><g clip-path="url(#${u}c)">${fillP(far,'#f4f8fc')}</g>`}
+  // mid ridges
+  const m1=ridgeP(r,H*.76,H*.2,W/14,.35),m2=ridgeP(r,H*.85,H*.12,W/12,.25);
+  const tc=S.treeColor||'#1f4a32';
+  o+=fillP(m1,S.mid[0]);if(!S.noTrees)o+=pines(m1,tc,9*K,W/34,r);
+  o+=fillP(m2,S.mid[1]);if(!S.noTrees)o+=pines(m2,tc,13*K,W/26,r);
+  // ground
+  const gy=H*.8;
+  switch(S.ground){
+   case 'river':{const wc=S.water||'#2a8c8c';o+=`<rect y="${H*.92}" width="${W}" height="${H*.08}" fill="${S.mid[1]}"/><path d="M0,${H*.86} C${W*.3},${H*.76} ${W*.6},${H*.96} ${W},${H*.8} V${H} H0Z" fill="${wc}"/>`;for(let i=0;i<14;i++){const x=r()*W,y=H*(.86+r()*.12);o+=`<path d="M${x.toFixed(0)},${y.toFixed(0)}h${(14+r()*26)*K}" stroke="#fff" stroke-width="${1.6*K}" opacity=".55" stroke-linecap="round"/>`}break}
+   case 'lake':{const[a,b]=S.water;o+=`<linearGradient id="${u}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient><rect y="${H*.76}" width="${W}" height="${H*.24}" fill="url(#${u}w)"/>`;for(let i=0;i<16;i++){const x=r()*W,y=H*(.78+r()*.2);o+=`<path d="M${x.toFixed(0)},${y.toFixed(0)}h${(18+r()*40)*K}" stroke="#fff" stroke-width="${1.4*K}" opacity=".35" stroke-linecap="round"/>`}break}
+   case 'meadow':{o+=`<linearGradient id="${u}m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fae5a"/><stop offset="1" stop-color="#3f7f3a"/></linearGradient><path d="M0,${H*.82} Q${W*.3},${H*.74} ${W*.6},${H*.8} T${W},${H*.78} V${H} H0Z" fill="url(#${u}m)"/>`;
+     if(S.flowers)for(let i=0;i<Math.round(W*H/900);i++){const x=r()*W,y=H*(.82+r()*.18);o+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${((1.4+r()*2.4)*K*(.6+(y/H-.8)*3)).toFixed(1)}" fill="${S.flowers[Math.floor(r()*S.flowers.length)]}"/>`}break}
+   case 'snow':{o+=`<path d="M0,${H*.84} Q${W*.35},${H*.76} ${W*.7},${H*.83} T${W},${H*.8} V${H} H0Z" fill="#f2f7fb"/><path d="M0,${H*.92} Q${W*.4},${H*.86} ${W},${H*.93} V${H} H0Z" fill="#cfdeea"/>`;break}
+   case 'forest':{o+=`<rect y="${H*.84}" width="${W}" height="${H*.16}" fill="#1f3d2a"/>`;break}
+   case 'rock':{o+=`<path d="M0,${H*.86} L${W*.2},${H*.82} L${W*.45},${H*.87} L${W*.7},${H*.82} L${W},${H*.86} V${H} H0Z" fill="#8a847a"/><path d="M0,${H*.93} L${W*.3},${H*.9} L${W*.6},${H*.95} L${W},${H*.9} V${H} H0Z" fill="#6c675f"/>`;break}
+  }
+  // features
+  const F={
+   town:(x,y,n)=>{let t='';for(let i=0;i<n;i++){const hx=x+(r()-.5)*Math.min(W*.3,n*16*K),hy=y+(r()-.2)*26*K,hw=(12+r()*14)*K,hh=(10+r()*14)*K,c=HOUSES[Math.floor(r()*HOUSES.length)];t+=`<rect x="${hx.toFixed(0)}" y="${(hy-hh).toFixed(0)}" width="${hw.toFixed(0)}" height="${hh.toFixed(0)}" fill="${c}"/><path d="M${(hx-2*K).toFixed(0)},${(hy-hh).toFixed(0)}L${(hx+hw/2).toFixed(0)},${(hy-hh-8*K).toFixed(0)}L${(hx+hw+2*K).toFixed(0)},${(hy-hh).toFixed(0)}Z" fill="#8a4b38"/>`}return t},
+   temple:(x,y,body='#e9d9b8',roof='#c0572a')=>g(x,y,`<rect x="-34" y="-40" width="68" height="40" fill="${body}"/><path d="M-30,-40L-22,-62L-12,-76L0,-96L12,-76L22,-62L30,-40Z" fill="${roof}"/><rect x="-8" y="-30" width="16" height="30" fill="#4a3022"/><path d="M0,-96V-114" stroke="#f4c542" stroke-width="2"/><circle cx="0" cy="-99" r="4" fill="#f4c542"/><path d="M0,-114l14,4-14,4z" fill="#e8521a"/>`),
+   bridge:()=>{const y=H*.8,a=W*.24,b=W*.76,t=y-70*K,sag=31*K;let s=`<g stroke="#222" fill="none" stroke-width="${1.6*K}"><path d="M${a},${y}V${t}M${b},${y}V${t}"/><path d="M${a},${t}Q${(a+b)/2},${t+2*sag} ${b},${t}"/><path d="M${a-60*K},${y}L${a},${t}M${b+60*K},${y}L${b},${t}"/><path d="M${a-60*K},${y}H${b+60*K}" stroke-width="${3.2*K}"/>`;for(let i=1;i<16;i++){const q=i/16,x=a+(b-a)*q,yc=t+sag*(1-Math.pow(2*q-1,2));s+=`<path d="M${x.toFixed(0)},${y}V${yc.toFixed(0)}" stroke-width="${.8*K}"/>`}return s+'</g>'},
+   tents:()=>{let t='';[[.3,.9],[.45,.93],[.62,.89]].forEach(([fx,fy],i)=>{const x=W*fx,y=H*fy,s=(16+i*3)*K;t+=`<path d="M${x-s},${y}L${x},${y-s*1.1}L${x+s},${y}Z" fill="${['#e8521a','#f4a012','#2e86ab'][i]}"/><path d="M${x},${y-s*1.1}L${x+s*.25},${y}H${x-s*.25}Z" fill="#00000030"/>`});return t},
+   boats:()=>{let t='';[[.3,.86],[.55,.92],[.74,.85]].forEach(([fx,fy],i)=>{const x=W*fx,y=H*fy,s=10*K;t+=`<path d="M${x-s},${y}h${s*2}l-${s*.3},${s*.5}h-${s*1.4}z" fill="${['#c0392b','#f4a012','#fff'][i]}"/><path d="M${x},${y}V${y-s*1.7}L${x+s*.9},${y-s*.2}Z" fill="#fff"/>`});return t},
+   island:()=>`<ellipse cx="${W*.5}" cy="${H*.86}" rx="${48*K}" ry="${12*K}" fill="#3d7f45"/><rect x="${W*.5-10*K}" y="${H*.86-18*K}" width="${20*K}" height="${14*K}" fill="#f3ecdd"/><path d="M${W*.5-12*K},${H*.86-18*K}L${W*.5},${H*.86-27*K}L${W*.5+12*K},${H*.86-18*K}Z" fill="#c0392b"/>`,
+   cable:()=>`<g stroke="#334" stroke-width="${1.6*K}"><path d="M${W*.1},${H*.26}L${W*.9},${H*.64}"/></g><g transform="translate(${W*.5},${H*.45})"><path d="M0,0V${10*K}" stroke="#334" stroke-width="${1.4*K}"/><rect x="${-11*K}" y="${10*K}" width="${22*K}" height="${15*K}" rx="${3*K}" fill="#e8521a"/><rect x="${-8*K}" y="${13*K}" width="${16*K}" height="${6*K}" fill="#cfe8f5"/></g><path d="M${W*.1},${H*.26}v${34*K}" stroke="#334" stroke-width="${3*K}"/>`,
+   rays:()=>`<g fill="#fff" opacity=".13"><path d="M${W*.5},${H*.5}L${W*.1},${H}H${W*.3}Z"/><path d="M${W*.5},${H*.5}L${W*.4},${H}H${W*.6}Z"/><path d="M${W*.5},${H*.5}L${W*.72},${H}H${W*.92}Z"/></g>`,
+   sal:()=>{let t='';[.08,.24,.78,.93].forEach((fx,i)=>{const x=W*fx,h=(120+i%2*40)*K;t+=`<rect x="${x-5*K}" y="${H-h}" width="${10*K}" height="${h}" fill="#4a3624"/><circle cx="${x}" cy="${H-h}" r="${34*K}" fill="#2d5a2a"/><circle cx="${x-20*K}" cy="${H-h+14*K}" r="${24*K}" fill="#3a6f32"/><circle cx="${x+20*K}" cy="${H-h+10*K}" r="${26*K}" fill="#264f26"/>`});return t},
+   glacier:()=>`<path d="M${W*.34},${H*.62} L${W*.66},${H*.62} L${W*.74},${H*.82} L${W*.6},${H*.96} L${W*.4},${H*.9} L${W*.28},${H*.78}Z" fill="#dcecf5"/><path d="M${W*.42},${H*.7}L${W*.5},${H*.88}M${W*.55},${H*.68}L${W*.6},${H*.9}" stroke="#9fc4d8" stroke-width="${2*K}"/>`,
+   frozenlake:()=>`<ellipse cx="${W*.5}" cy="${H*.88}" rx="${W*.2}" ry="${H*.06}" fill="#e8f2f9"/><ellipse cx="${W*.5}" cy="${H*.885}" rx="${W*.16}" ry="${H*.04}" fill="#6fa6c8"/><ellipse cx="${W*.46}" cy="${H*.875}" rx="${W*.05}" ry="${H*.012}" fill="#a9d0e6"/>`,
+   steam:()=>`<g filter="url(#${u}b)" fill="#fff" opacity=".6"><ellipse cx="${W*.62}" cy="${H*.7}" rx="${W*.05}" ry="${H*.09}"/><ellipse cx="${W*.66}" cy="${H*.58}" rx="${W*.045}" ry="${H*.07}"/></g>`,
+   mist:()=>`<g filter="url(#${u}b)" fill="#fff" opacity=".42"><ellipse cx="${W*.3}" cy="${H*.64}" rx="${W*.26}" ry="${H*.04}"/><ellipse cx="${W*.72}" cy="${H*.72}" rx="${W*.3}" ry="${H*.045}"/><ellipse cx="${W*.5}" cy="${H*.54}" rx="${W*.2}" ry="${H*.03}"/></g>`,
+   birds:()=>[[.2,.18],[.26,.22],[.3,.15]].map(([fx,fy])=>`<path d="M${W*fx-7*K},${H*fy}q${7*K},${-7*K} ${7*K},0q${7*K},${-7*K} ${7*K},0" fill="none" stroke="#2b2b2b" stroke-width="${1.5*K}"/>`).join(''),
+   diyas:()=>Array.from({length:18},()=>{const x=W*(.2+r()*.6),y=H*(.86+r()*.1);return `<ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="${3.4*K}" ry="${1.8*K}" fill="#f4a012"/><circle cx="${x.toFixed(0)}" cy="${(y-3*K).toFixed(0)}" r="${1.6*K}" fill="#ffd54a"/>`}).join(''),
+   lights:()=>Array.from({length:40},()=>`<circle cx="${(W*(.3+r()*.4)).toFixed(0)}" cy="${(H*(.7+r()*.1)).toFixed(0)}" r="${1.3*K}" fill="#ffd54a"/>`).join(''),
+   clock:()=>g(W*.5,H*.78,`<rect x="-7" y="-60" width="14" height="60" fill="#d9c8a8"/><path d="M-9,-60L0,-76L9,-60Z" fill="#8a4b38"/><circle cx="0" cy="-48" r="5" fill="#fff" stroke="#333" stroke-width="1"/>`)
+  };
+  for(const [n,fx,fy,a1,a2] of S.feats){
+    const f=F[n];if(!f)continue;
+    o+=(fx===undefined)?f():f(W*fx,H*fy,a1,a2);
+  }
+  return o+'</svg>';
+}
+function visual(id,w=600,h=400){
+  if(PHOTOS[id])return `<img class="scene" src="${PHOTOS[id]}" alt="" loading="lazy">`;
+  return scene(id,w,h);
+}
+function decorate(){
+  document.getElementById('hero-scene').innerHTML=visual(1,1440,760);
+  document.querySelectorAll('.feat-img').forEach(el=>el.innerHTML=visual(+el.dataset.scene,600,220));
+  const banners={destinations:3,weather:5,planner:13,budget:7,bus:6,offers:10};
+  for(const p in banners){const h=document.querySelector('#page-'+p+' .section-header');if(h)h.insertAdjacentHTML('afterbegin',`<div class="sh-bg">${visual(banners[p],1200,260)}</div><div class="sh-shade"></div>`)}
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────
+
+window.onload = function() {
+  decorate();
+  renderDestinations(destinations);
+  renderWeather("Rishikesh");
+  renderWeatherSelector();
+  renderSeasons();
+  renderPlaces();
+  renderOffers();
+  renderBusResults();
+  document.getElementById('tipOfDay').textContent = tips[Math.floor(Math.random()*tips.length)];
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bus-date').value = today;
+  initReveal();
+  setSelectedTier('budget');
+};
+
+// ─── NAVIGATION ────────────────────────────────────────────────────────────
+
+let currentPage = 'home';
+function showPage(page) {
+  document.querySelectorAll('.page, #page-home').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button:not(.btn-login)').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-home').style.display = page === 'home' ? 'block' : 'none';
+  if (page !== 'home') {
+    const el = document.getElementById('page-'+page);
+    if(el) { el.style.display = 'block'; el.classList.add('active'); }
+  }
+  const navBtn = document.getElementById('nav-'+page);
+  if(navBtn) navBtn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  currentPage = page;
+}
+
+function toggleMobileMenu() {
+  const nav = document.getElementById('main-nav');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.flexDirection = 'column';
+  nav.style.position = 'fixed';
+  nav.style.top = '64px';
+  nav.style.left = 0; nav.style.right = 0;
+  nav.style.background = '#0d2e1e';
+  nav.style.padding = '1rem';
+  nav.style.zIndex = 999;
+}
+
+// ─── DESTINATIONS ──────────────────────────────────────────────────────────
+
+function renderDestinations(data) {
+  const grid = document.getElementById('destinations-grid');
+  grid.innerHTML = data.map(d => `
+    <div class="dest-card" onclick="openDestDetail(${d.id})">
+      <div class="dest-img">
+        <div class="dest-img-bg">${visual(d.id)}</div>
+        <div class="dest-badges">
+          ${d.tags.map(t=>`<span class="badge-tag ${t}">${tagLabel(t)}</span>`).join('')}
+        </div>
+        <div class="dest-crowd" style="color:${crowdColor(d.crowd)}">${crowdIcon(d.crowd)} ${d.crowd}</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-name">${d.name}</div>
+        <div class="dest-region">📍 ${d.region} · ${d.altitude}</div>
+        <div class="dest-desc">${d.desc.substring(0,100)}...</div>
+        <div class="dest-meta">
+          <div class="meta-item">📅 Best: ${d.best}</div>
+          <div class="meta-item">🚗 ${d.dist}</div>
+        </div>
+        <div class="dest-budget">
+          <span class="budget-tier tier-budget">${d.budget.budget}</span>
+          <span class="budget-tier tier-mid">${d.budget.mid}</span>
+        </div>
+        <div class="dest-actions">
+          <button class="btn-explore">🗺️ Explore</button>
+          <button class="btn-weather-check" onclick="event.stopPropagation();checkWeather('${d.name}')">☁️</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function tagLabel(t) {
+  const m = {religious:'🙏 Religious',trek:'🥾 Trek',popular:'📍 Popular',offbeat:'💎 Offbeat',nature:'🌿 Nature',adventure:'🏄 Adventure'};
+  return m[t]||t;
+}
+function crowdColor(c) {
+  const m = {'Very Low':'#4caf50','Low':'#8bc34a','Low-Medium':'#cddc39','Medium':'#ff9800','High':'#ff5722','Very High':'#f44336'};
+  return m[c]||'#999';
+}
+function crowdIcon(c) {
+  const m = {'Very Low':'😌','Low':'🙂','Low-Medium':'😊','Medium':'😐','High':'😤','Very High':'😵'};
+  return m[c]||'';
+}
+
+function filterDest(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(type==='all') { renderDestinations(destinations); return; }
+  renderDestinations(destinations.filter(d=>d.type.includes(type)||d.tags.includes(type)));
+}
+
+function checkWeather(name) {
+  showPage('weather');
+  setTimeout(()=>renderWeather(name),100);
+}
+
+function openDestDetail(id) {
+  const d = destinations.find(x=>x.id===id);
+  if(!d) return;
+  const modal = document.getElementById('dest-modal');
+  document.getElementById('dest-modal-content').innerHTML = `
+    <button class="modal-close" onclick="document.getElementById('dest-modal').classList.remove('open')">✕</button>
+    <div class="dest-detail-header">${visual(d.id,700,280)}</div>
+    <div class="dest-detail-title">${d.name}</div>
+    <div class="dest-detail-region">📍 ${d.region} · ${d.altitude} altitude · ${d.dist}</div>
+    <p style="color:#555;line-height:1.7;margin-bottom:1.5rem">${d.desc}</p>
+    <div class="detail-tabs">
+      <button class="d-tab active" onclick="switchDetailTab('info',this)">ℹ️ Info</button>
+      <button class="d-tab" onclick="switchDetailTab('places',this)">📍 Places</button>
+      <button class="d-tab" onclick="switchDetailTab('budget',this)">💰 Budget</button>
+    </div>
+    <div class="detail-section active" id="detail-info">
+      <div class="info-grid">
+        <div class="info-box"><div class="info-box-label">Best Time</div><div class="info-box-val">📅 ${d.best}</div></div>
+        <div class="info-box"><div class="info-box-label">Crowd Level</div><div class="info-box-val" style="color:${crowdColor(d.crowd)}">${crowdIcon(d.crowd)} ${d.crowd}</div></div>
+        <div class="info-box"><div class="info-box-label">Altitude</div><div class="info-box-val">🏔️ ${d.altitude}</div></div>
+        <div class="info-box"><div class="info-box-label">Distance</div><div class="info-box-val">🚗 ${d.dist}</div></div>
+      </div>
+    </div>
+    <div class="detail-section" id="detail-places">
+      <div class="places-list">${d.places.map((p,i)=>`
+        <div class="place-entry">
+          <span class="pe-icon">📍</span>
+          <div><div class="pe-name">${p}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="detail-section" id="detail-budget">
+      <div class="info-grid">
+        <div class="info-box" style="background:#e8f5e9"><div class="info-box-label">🎒 Budget</div><div class="info-box-val" style="color:#2e7d32">${d.budget.budget}</div></div>
+        <div class="info-box" style="background:#fff3e0"><div class="info-box-label">🏨 Mid-Range</div><div class="info-box-val" style="color:#e65100">${d.budget.mid}</div></div>
+        <div class="info-box" style="background:#fce4ec"><div class="info-box-label">👑 Luxury</div><div class="info-box-val" style="color:#c62828">${d.budget.luxury}</div></div>
+      </div>
+      <div style="background:#f0f9f0;padding:1rem;border-radius:12px;margin-top:0.5rem;font-size:0.85rem;color:#2d6a3c">
+        💡 <strong>Off-season tip:</strong> Visit in Sep–Oct for lower accommodation prices at ${d.name}. Costs shown are estimates.
+      </div>
+    </div>
+    <div style="display:flex;gap:0.8rem;margin-top:1.5rem;flex-wrap:wrap">
+      <button class="btn-explore" style="flex:1" onclick="addToPlanner(${d.id});document.getElementById('dest-modal').classList.remove('open');showPage('planner')">📋 Add to Trip Planner</button>
+      <button class="btn-weather-check" style="flex:1;background:var(--sky);color:white;border:none;border-radius:12px;font-family:Mukta,sans-serif;font-weight:700;cursor:pointer" onclick="document.getElementById('dest-modal').classList.remove('open');checkWeather('${d.name}')">☁️ Check Weather</button>
+    </div>
+  `;
+  modal.classList.add('open');
+}
+
+function switchDetailTab(tab, btn) {
+  document.querySelectorAll('.d-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.detail-section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('detail-'+tab).classList.add('active');
+}
+
+// ─── WEATHER ───────────────────────────────────────────────────────────────
+
+function renderWeatherSelector() {
+  const sel = document.getElementById('weather-selector');
+  sel.innerHTML = Object.keys(weatherData).map(loc=>`
+    <button class="weather-loc-btn ${loc==='Rishikesh'?'active':''}" onclick="selectWeatherLoc('${loc}',this)">${loc}</button>
+  `).join('');
+}
+
+function selectWeatherLoc(loc, btn) {
+  document.querySelectorAll('.weather-loc-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderWeather(loc);
+}
+
+function renderWeather(loc) {
+  const d = weatherData[loc] || weatherData['Rishikesh'];
+  const dd=destinations.find(x=>x.name===loc); if(dd) document.getElementById('w-bg').innerHTML=visual(dd.id,1000,300);
+  document.getElementById('w-loc-name').textContent = loc;
+  document.getElementById('w-temp').textContent = d.temp;
+  document.getElementById('w-desc').textContent = d.desc;
+  document.getElementById('w-icon').textContent = d.icon;
+  document.getElementById('w-details').innerHTML = [
+    {icon:'💧',val:d.humidity,lbl:'Humidity'},
+    {icon:'💨',val:d.wind,lbl:'Wind Speed'},
+    {icon:'👁️',val:d.visibility,lbl:'Visibility'},
+    {icon:'🌡️',val:d.feelsLike,lbl:'Feels Like'},
+    {icon:'☀️',val:d.uvIndex,lbl:'UV Index'},
+    {icon:'⛅',val:'Mountain',lbl:'Climate Zone'},
+  ].map(x=>`
+    <div class="w-detail">
+      <div class="w-detail-icon">${x.icon}</div>
+      <div class="w-detail-val">${x.val}</div>
+      <div class="w-detail-lbl">${x.lbl}</div>
+    </div>
+  `).join('');
+  const a = d.alert;
+  document.getElementById('road-alerts').innerHTML = `
+    <div class="road-alert ${a.type}">
+      <div class="road-alert-icon">${a.type==='safe'?'✅':a.type==='caution'?'⚠️':'🚫'}</div>
+      <div><div class="road-alert-title">${a.msg}</div><div class="road-alert-desc">${a.detail}</div></div>
+    </div>
+  `;
+  // Update selector highlight
+  document.querySelectorAll('.weather-loc-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent.trim()===loc);
+  });
+}
+
+function renderSeasons() {
+  document.getElementById('season-grid').innerHTML = seasons.map(s=>`
+    <div class="season-item ${s.status}">
+      <div style="font-size:1.5rem">${s.icon}</div>
+      <div class="season-month">${s.month}</div>
+      <div class="season-label" style="color:${s.status==='best'?'#2e7d32':s.status==='shoulder'?'#e65100':'#999'}">${s.label}</div>
+      <div style="font-size:0.72rem;color:#666;margin-top:0.2rem">${s.tip}</div>
+      ${s.discount?`<div class="season-discount">${s.discount}</div>`:''}
+    </div>
+  `).join('');
+}
+
+// ─── TRIP PLANNER ──────────────────────────────────────────────────────────
+
+let selectedPlaces = [];
+const allPlaces = [
+  {id:1,name:"Har Ki Pauri",type:"Religious",emoji:"🪔",dur:"2h",dest:"Haridwar",tip:"Attend evening Ganga Aarti at 6 PM"},
+  {id:2,name:"Laxman Jhula",type:"Cultural",emoji:"🌉",dur:"1h",dest:"Rishikesh",tip:"Best at sunrise for photos"},
+  {id:3,name:"White Water Rafting",type:"Adventure",emoji:"🚣",dur:"3h",dest:"Rishikesh",tip:"Book in advance for Grade 4 rapids"},
+  {id:4,name:"Kempty Falls",type:"Nature",emoji:"💦",dur:"2h",dest:"Mussoorie",tip:"Visit on weekdays to avoid crowds"},
+  {id:5,name:"Naini Lake Boating",type:"Recreation",emoji:"⛵",dur:"1.5h",dest:"Nainital",tip:"Peaceful at 7 AM before crowds"},
+  {id:6,name:"Kedarnath Temple",type:"Religious",emoji:"⛪",dur:"4h",dest:"Kedarnath",tip:"Start trek from Gaurikund at 4 AM"},
+  {id:7,name:"Gun Hill Cable Car",type:"Scenic",emoji:"🚡",dur:"1.5h",dest:"Mussoorie",tip:"Best views in clear morning weather"},
+  {id:8,name:"Jim Corbett Safari",type:"Wildlife",emoji:"🐯",dur:"3h",dest:"Corbett",tip:"Dhikala zone best for tiger sightings"},
+  {id:9,name:"Triveni Ghat Aarti",type:"Religious",emoji:"🔥",dur:"1h",dest:"Rishikesh",tip:"Arrive 30 min early for front spots"},
+  {id:10,name:"Auli Ski Resort",type:"Adventure",emoji:"⛷️",dur:"6h",dest:"Auli",tip:"Ski school available for beginners"},
+  {id:11,name:"Valley of Flowers",type:"Nature",emoji:"🌸",dur:"Full Day",dest:"Chamoli",tip:"July-August for peak bloom"},
+  {id:12,name:"Tungnath Temple",type:"Religious",emoji:"🙏",dur:"5h",dest:"Chopta",tip:"Highest Shiva temple in world"},
+  {id:13,name:"Gaumukh Glacier",type:"Trek",emoji:"🧊",dur:"2 Days",dest:"Uttarkashi",tip:"Permit required, book 2 weeks ahead"},
+  {id:14,name:"Bhimtal Lake",type:"Nature",emoji:"🏞️",dur:"2h",dest:"Bhimtal",tip:"Visit the island aquarium in the lake"},
+  {id:15,name:"Robber's Cave",type:"Nature",emoji:"🕳️",dur:"1.5h",dest:"Dehradun",tip:"Wear sandals you don't mind getting wet"},
+  {id:16,name:"Mana Village",type:"Cultural",emoji:"🏘️",dur:"2h",dest:"Badrinath",tip:"Last Indian village before Tibet border"},
+  {id:17,name:"Chandrashila Peak",type:"Trek",emoji:"🏔️",dur:"Full Day",dest:"Chopta",tip:"360° Himalayan panorama at summit"},
+  {id:18,name:"Bungee Jumping",type:"Adventure",emoji:"🪂",dur:"2h",dest:"Rishikesh",tip:"83m jump — highest bungee in India"},
+];
+
+function renderPlaces() {
+  document.getElementById('places-list').innerHTML = allPlaces.map(p=>`
+    <div class="place-item ${selectedPlaces.includes(p.id)?'added':''}" id="place-${p.id}">
+      <span class="place-emoji">${p.emoji}</span>
+      <div class="place-info">
+        <div class="place-name">${p.name}</div>
+        <div class="place-type">${p.type} · ${p.dest}</div>
+        <div class="place-dur">⏱️ ${p.dur}</div>
+      </div>
+      <button class="btn-add-place" onclick="togglePlace(${p.id})">
+        ${selectedPlaces.includes(p.id)?'✓':'+ Add'}
+      </button>
+    </div>
+  `).join('');
+}
+
+function togglePlace(id) {
+  if(selectedPlaces.includes(id)) {
+    selectedPlaces = selectedPlaces.filter(x=>x!==id);
+  } else {
+    selectedPlaces.push(id);
+  }
+  renderPlaces();
+}
+
+function addToPlanner(destId) {
+  const dest = destinations.find(d=>d.id===destId);
+  if(!dest) return;
+  showToast(`📋 ${dest.name} added to your planner!`);
+}
+
+function generateItinerary() {
+  if(selectedPlaces.length === 0) { showToast('⚠️ Please add at least one place first!'); return; }
+  const days = parseInt(document.getElementById('tripDays').value)||3;
+  const name = document.getElementById('tripName').value||'My Uttarakhand Adventure';
+  const places = selectedPlaces.map(id=>allPlaces.find(p=>p.id===id)).filter(Boolean);
+  const chunks = [];
+  const perDay = Math.ceil(places.length/days);
+  for(let i=0;i<days;i++) { chunks.push(places.slice(i*perDay,(i+1)*perDay)); }
+  const times = ['08:00 AM','10:30 AM','01:00 PM','03:30 PM','06:00 PM'];
+  document.getElementById('itinerary-output').innerHTML = `
+    <div style="background:#f0f9f0;border-radius:14px;padding:0.8rem 1.2rem;margin-bottom:1rem;color:#2e7d32;font-weight:600;font-size:0.9rem">
+      ✨ ${name} · ${days} Days · ${places.length} Stops
+    </div>
+    ${chunks.map((chunk,i)=>`
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-title">Day ${i+1}</div>
+          <div class="day-meta">${chunk.length} stops · ~${chunk.length*2}h travel</div>
+        </div>
+        <div class="day-stops">
+          ${chunk.map((p,j)=>`
+            <div class="stop-item">
+              <span class="stop-time">${times[j]||'TBD'}</span>
+              <span class="stop-icon">${p.emoji}</span>
+              <div style="flex:1"><div class="stop-name">${p.name}</div><div class="stop-tip">💡 ${p.tip}</div></div>
+              <span style="font-size:0.75rem;color:#aaa">⏱️ ${p.dur}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('')}
+    <div style="text-align:center;padding:1rem">
+      <button class="btn-gen" onclick="showPage('budget')">💰 Estimate Budget for this Trip</button>
+    </div>
+  `;
+  showToast('✅ Itinerary generated successfully!');
+}
+
+function clearItinerary() {
+  selectedPlaces = [];
+  renderPlaces();
+  document.getElementById('itinerary-output').innerHTML = `
+    <div class="empty-planner">
+      <div class="empty-icon">🗺️</div>
+      <p>Add places from the left panel & click <strong>Generate</strong> to create your itinerary</p>
+    </div>
+  `;
+}
+
+// ─── BUDGET ────────────────────────────────────────────────────────────────
+
+let selectedTier = 'budget';
+let expenses = [];
+
+function selectTier(el, tier) {
+  document.querySelectorAll('.tier-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTier = tier;
+}
+function setSelectedTier(tier) { selectedTier = tier; }
+
+const budgetRates = {
+  budget: { stay:600, food:300, transport:200, entry:100, misc:200 },
+  mid: { stay:2000, food:800, transport:500, entry:200, misc:500 },
+  luxury: { stay:6000, food:2000, transport:1500, entry:500, misc:1000 },
+};
+
+function calculateBudget() {
+  const dest = document.getElementById('b-destination').value;
+  const days = parseInt(document.getElementById('b-days').value)||3;
+  const people = parseInt(document.getElementById('b-people').value)||2;
+  const origin = document.getElementById('b-origin').value;
+  const rates = budgetRates[selectedTier];
+  const transportMultiplier = {'Delhi':1.5,'Chandigarh':1.2,'Mumbai':2,'Lucknow':1.3,'Haridwar':0.8,'Dehradun':0.6}[origin]||1;
+  const items = [
+    {icon:'🚌',name:'Transport',sub:`${origin} → ${dest} (${selectedTier})`,amount: Math.round(rates.transport*transportMultiplier*people)},
+    {icon:'🏨',name:'Accommodation',sub:`${days} nights, ${people} people`,amount: rates.stay*days},
+    {icon:'🍽️',name:'Food & Dining',sub:`₹${rates.food}/person/day`,amount: rates.food*days*people},
+    {icon:'🎫',name:'Entry & Activities',sub:`Temples, safaris, adventure`,amount: rates.entry*days*people},
+    {icon:'🛍️',name:'Shopping & Misc',sub:`Souvenirs, medicines, tips`,amount: rates.misc*people},
+  ];
+  const total = items.reduce((s,x)=>s+x.amount,0);
+  document.getElementById('breakdown-items').innerHTML = items.map(x=>`
+    <div class="expense-item">
+      <span class="expense-icon">${x.icon}</span>
+      <div class="expense-details"><div class="expense-name">${x.name}</div><div class="expense-sub">${x.sub}</div></div>
+      <span class="expense-amount">₹${x.amount.toLocaleString('en-IN')}</span>
+    </div>
+  `).join('');
+  document.getElementById('total-cost').textContent = '₹'+total.toLocaleString('en-IN');
+  document.getElementById('total-per-person').textContent = `₹${Math.round(total/people).toLocaleString('en-IN')} per person`;
+  document.getElementById('budget-result').style.display = 'grid';
+  document.getElementById('split-total').value = total;
+  document.getElementById('split-people').value = people;
+  showToast('💰 Budget calculated!');
+}
+
+function addExpense() {
+  const name = document.getElementById('exp-name').value.trim();
+  const cat = document.getElementById('exp-cat').value;
+  const amount = parseFloat(document.getElementById('exp-amount').value);
+  if(!name||!amount) { showToast('⚠️ Please enter expense details'); return; }
+  expenses.push({id:Date.now(),cat,name,amount});
+  renderExpenses();
+  document.getElementById('exp-name').value = '';
+  document.getElementById('exp-amount').value = '';
+}
+
+function renderExpenses() {
+  const total = expenses.reduce((s,x)=>s+x.amount,0);
+  document.getElementById('expenses-list').innerHTML = expenses.map(e=>`
+    <div class="exp-entry">
+      <span class="exp-cat">${e.cat}</span>
+      <span class="exp-name">${e.name}</span>
+      <span class="exp-amount">₹${e.amount.toLocaleString('en-IN')}</span>
+      <button class="exp-delete" onclick="removeExpense(${e.id})">🗑️</button>
+    </div>
+  `).join('');
+  document.getElementById('total-spent').textContent = '₹'+total.toLocaleString('en-IN');
+}
+
+function removeExpense(id) {
+  expenses = expenses.filter(e=>e.id!==id);
+  renderExpenses();
+}
+
+function calcSplit() {
+  const total = parseFloat(document.getElementById('split-total').value)||0;
+  const people = parseInt(document.getElementById('split-people').value)||2;
+  if(!total||!people) return;
+  const each = total/people;
+  const el = document.getElementById('split-result');
+  el.style.display = 'block';
+  el.innerHTML = `
+    <strong>₹${each.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})} per person</strong>
+    for ${people} people · Total: ₹${total.toLocaleString('en-IN')}
+    <div style="margin-top:0.5rem;font-size:0.8rem;color:#666">
+      ${Array.from({length:Math.min(people,8)},(_,i)=>`Person ${i+1}: ₹${each.toFixed(0)}`).join(' | ')}
+    </div>
+  `;
+}
+
+// ─── BUS ────────────────────────────────────────────────────────────────────
+
+let transportTab = 'bus';
+function setTransportTab(btn, tab) {
+  document.querySelectorAll('.t-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  transportTab = tab;
+}
+
+function searchBuses() {
+  const from = document.getElementById('bus-from').value;
+  const to = document.getElementById('bus-to').value;
+  const pass = parseInt(document.getElementById('bus-pass').value)||1;
+  renderBusResults(from, to, pass);
+  showToast(`🔍 Found ${busData.length} options`);
+}
+
+function renderBusResults(from, to, pass) {
+  const data = from ? busData.filter(b=>true) : busData;
+  document.getElementById('bus-results').innerHTML = data.map(b=>`
+    <div class="bus-card ${b.cls}">
+      <div class="bus-row">
+        <div>
+          <div class="bus-operator">${b.operator}</div>
+          <div class="bus-type">${b.type}</div>
+        </div>
+        <div class="bus-route">
+          <span class="bus-time">${b.dep}</span>
+          <span class="bus-arrow">→</span>
+          <span style="font-weight:600">${b.from||from||'Dehradun'} → ${b.to||to||'Mussoorie'}</span>
+          <span class="bus-arrow">→</span>
+          <span class="bus-time">${b.arr}</span>
+          <span class="bus-duration">${b.dur}</span>
+        </div>
+        <div>
+          <div class="bus-fare">₹${(b.fare*(pass||1)).toLocaleString('en-IN')}</div>
+          <div class="bus-type">sample fare</div>
+        </div>
+        <button class="btn-book" onclick="showToast('Demo only: booking is not available yet')">Book (demo)</button>
+      </div>
+      ${b.cls==='cheap'?'<div style="margin-top:0.5rem;font-size:0.75rem;color:#4caf50;font-weight:600">💚 Best Value Option</div>':b.cls==='premium'?'<div style="margin-top:0.5rem;font-size:0.75rem;color:var(--gold);font-weight:600">⭐ Premium Comfort</div>':''}
+    </div>
+  `).join('');
+}
+
+// ─── OFFERS ─────────────────────────────────────────────────────────────────
+
+function renderOffers() {
+  document.getElementById('offers-grid').innerHTML = offers.map((o,i)=>`
+    <div class="offer-card">
+      <div class="offer-banner" style="background:${o.bg}">
+        ${visual([7,1,3,8,6,10][i],600,340)}
+        <div class="offer-discount">${o.discount}</div>
+      </div>
+      <div class="offer-body">
+        <div class="offer-title">${o.title}</div>
+        <div class="offer-desc">${o.desc}</div>
+        <div class="offer-validity">📅 ${o.validity}</div>
+        <button class="btn-claim" onclick="showToast('Demo only: these are example offers, not real deals')">View Example</button>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('food-grid').innerHTML = foods.map(f=>`
+    <div class="food-card">
+      <div class="food-img">${f.emoji}</div>
+      <div class="food-name">${f.name}</div>
+      <div class="food-desc">${f.desc}</div>
+      <div class="food-price">💰 ${f.price}</div>
+    </div>
+  `).join('');
+}
+
+// ─── LOGIN ───────────────────────────────────────────────────────────────────
+
+function openLogin() { showToast('Accounts come later. This demo stores nothing about you.'); }
+function closeLogin() {}
+// ─── QUICK SEARCH ─────────────────────────────────────────────────────────
+
+function doQuickSearch() {
+  const q = document.getElementById('quickSearchInput').value.toLowerCase().trim();
+  if(!q) return;
+  showPage('destinations');
+  setTimeout(()=>{
+    const filtered = destinations.filter(d=>
+      d.name.toLowerCase().includes(q)||d.region.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)||d.type.some(t=>t.includes(q))
+    );
+    if(filtered.length>0) renderDestinations(filtered);
+    else renderDestinations(destinations);
+  },200);
+}
+
+document.getElementById('quickSearchInput').addEventListener('keypress',e=>{
+  if(e.key==='Enter') doQuickSearch();
+});
+
+// ─── TOAST ────────────────────────────────────────────────────────────────
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ─── SCROLL REVEAL ────────────────────────────────────────────────────────
+
+function initReveal() {
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay=>{
+  overlay.addEventListener('click',e=>{
+    if(e.target===overlay) overlay.classList.remove('open');
+  });
+});
+</script>
+
+
+</body></html>
